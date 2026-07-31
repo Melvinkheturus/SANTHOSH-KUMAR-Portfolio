@@ -11,39 +11,27 @@ import ProjectResults from '@/components/section/projectdetail/ProjectResults';
 import ProjectLinks from '@/components/section/projectdetail/ProjectLinks';
 import ProjectVisualShowcase from '@/components/section/projectdetail/ProjectVisualShowcase';
 import ScrollProgressIndicator from '@/components/ui/ScrollProgressIndicator';
-import { sanityFetch } from '@/sanity/lib/sanityFetch';
-import { casestudyBySlugQuery } from '@/sanity/schemaTypes/dynamic/projectdetail/casestudy';
+import { getProjectBySlug } from '@/data/portfolioData';
 
 export default async function ProjectDetail({
   params
 }: {
   params: Promise<{ slug: string }>
 }) {
-  // CRITICAL: Await params in Next.js 15+
   const { slug } = await params;
+  const projectItem = getProjectBySlug(slug);
 
-  const { data: currentProject, error, isFromCMS } = await sanityFetch<any>(
-    casestudyBySlugQuery,
-    null,
-    { slug }
-  );
-
-  // Debug logs
-  console.log('Fetching project with slug:', slug);
-  console.log('Is from CMS:', isFromCMS);
-  console.log('Error:', error);
-  console.log('Project found:', !!currentProject);
-
-  if (!currentProject) {
+  if (!projectItem || !projectItem.casestudy) {
     notFound();
   }
+
+  const currentProject = projectItem.casestudy;
 
   // Build sections array dynamically based on available content
   const sections = [
     { id: 'hero', label: 'Overview' },
   ];
 
-  // Only add sections if they have content
   if ((currentProject.techStack && currentProject.techStack.length > 0) || currentProject.projectType || currentProject.role || currentProject.timeline) {
     sections.push({ id: 'techstack', label: 'Tech Stack' });
   }

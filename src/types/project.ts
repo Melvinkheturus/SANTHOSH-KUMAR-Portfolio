@@ -1,15 +1,17 @@
-import { Image as SanityImage } from 'sanity';
-
 export interface ImageType {
   url: string;
   alt: string;
   caption?: string;
+  title?: string;
+  location?: string;
+  keyFeature?: string;
 }
 
 export interface FeatureType {
   title: string;
   description: string;
-  icon: string;
+  imageUrl?: string;
+  icon?: string;
 }
 
 export interface TechItemType {
@@ -17,10 +19,16 @@ export interface TechItemType {
   icon?: string;
 }
 
+export interface LinkIconType {
+  type: 'library' | 'image';
+  libraryIcon?: string;
+  customImage?: string;
+}
+
 export interface LinkType {
-  label: string;
+  type: string;
   url: string;
-  icon: string;
+  icon: LinkIconType | null;
 }
 
 export interface ArtifactType {
@@ -29,46 +37,47 @@ export interface ArtifactType {
 }
 
 export interface ProcessPhaseType {
-  title: string;
+  phase: string;
   description: string;
   artifacts?: ArtifactType[];
 }
 
 export interface ResultType {
-  title: string;
+  metric: string;
+  value: string;
   description: string;
-  icon: string;
 }
 
 export interface CasestudyType {
   title: string;
   subtitle?: string;
   category: string;
+  timeline?: string;
+  role?: string;
+  projectType?: string;
+  thumbnail?: string;
+  heroImage?: string;
   techStack?: TechItemType[];
-  thumbnail: SanityImage & { alt: string };
-  summary?: any[];
-  problem?: any[];
-  solution?: any[];
+  summary?: string[];
+  contribution?: string;
+  problem?: string[];
+  solution?: string[];
   features?: FeatureType[];
   processPhases?: ProcessPhaseType[];
   results?: ResultType[];
-  technologies?: TechItemType[];
   links?: LinkType[];
   visualShowcase?: ImageType[];
   mobileShowcase?: ImageType[];
   mobileFeatures?: FeatureType[];
+  slug?: { current: string } | string;
 }
 
 export interface Project {
   _id: string;
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  _type: "project";
   title: string;
   slug: string;
   projectType: string;
   position: number;
-  thumbnail: SanityImage & { alt: string };
+  thumbnail?: string;
   casestudy?: CasestudyType;
 }

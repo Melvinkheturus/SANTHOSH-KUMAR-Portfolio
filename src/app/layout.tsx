@@ -1,19 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import PersonSchema from "@/components/PersonSchema";
-import Cursor from "@/components/ui/Cursor";
 import ClientLayoutWrapper from "./ClientLayoutWrapper";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Manikandan S | Web Developer, UI/UX Designer & Creative Technologist",

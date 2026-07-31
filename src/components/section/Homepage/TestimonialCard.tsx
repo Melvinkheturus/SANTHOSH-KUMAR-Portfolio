@@ -3,7 +3,6 @@
 import { BentoCard } from "../../bento/BentoCard";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { sanityFetch } from "@/sanity/lib/sanityFetch";
 
 interface Testimonial {
   quote: string;
@@ -15,10 +14,9 @@ interface Testimonial {
   avatarType: 'initials' | 'image';
 }
 
-// Default fallback data
 const DEFAULT_TESTIMONIALS: Testimonial[] = [
   {
-    quote: "Muralidharan is an exceptional developer who delivered our project on time and exceeded our expectations. His attention to detail and problem-solving skills are impressive.",
+    quote: "Manikandan is an exceptional developer who delivered our project on time and exceeded our expectations. His attention to detail and problem-solving skills are impressive.",
     name: "Jane Doe",
     position: "CEO",
     company: "Tech Startup",
@@ -27,7 +25,7 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
     avatarType: 'initials'
   },
   {
-    quote: "Working with Muralidharan was a pleasure. He's highly skilled, communicative, and always goes the extra mile to ensure the quality of his work.",
+    quote: "Working with Manikandan was a pleasure. He's highly skilled, communicative, and always goes the extra mile to ensure the quality of his work.",
     name: "John Smith",
     position: "CTO",
     company: "Software Company",
@@ -36,84 +34,27 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
     avatarType: 'initials'
   },
   {
-    quote: "Muralidharan transformed our vision into a reality. His expertise in modern web technologies is evident in the robust and scalable solution he built for us.",
+    quote: "Manikandan transformed our vision into a reality. His expertise in modern web technologies is evident in the robust and scalable solution he built for us.",
     name: "Emily White",
     position: "Product Manager",
     company: "E-commerce",
     avatar: null,
     initials: "EW",
     avatarType: 'initials'
-  },
-  {
-    quote: "Muralidharan is a highly skilled and dedicated developer. He consistently delivers high-quality work and is a valuable asset to any team.",
-    name: "David Lee",
-    position: "Senior Developer",
-    company: "FinTech",
-    avatar: null,
-    initials: "DL",
-    avatarType: 'initials'
-  },
-  {
-    quote: "I was impressed by Muralidharan's ability to quickly grasp complex requirements and translate them into elegant code. A true professional!",
-    name: "Sarah Chen",
-    position: "Project Lead",
-    company: "Healthcare",
-    avatar: null,
-    initials: "SC",
-    avatarType: 'initials'
-  },
-  {
-    quote: "Muralidharan's contributions were instrumental in the success of our latest product launch. His technical prowess and collaborative spirit are unmatched.",
-    name: "Michael Brown",
-    position: "VP of Engineering",
-    company: "Startup",
-    avatar: null,
-    initials: "MB",
-    avatarType: 'initials'
-  },
+  }
 ];
 
 export default function TestimonialCard() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [testimonials, setTestimonials] = useState<Testimonial[]>(DEFAULT_TESTIMONIALS);
-
-  // Fetch data from Sanity CMS
-  useEffect(() => {
-    async function fetchTestimonials() {
-      const query = `*[_type == "testimonial"] | order(order asc){
-        _id,
-        name,
-        position,
-        company,
-        quote,
-        avatarType,
-        initials,
-        "avatar": avatar.asset->url
-      }`;
-      const result = await sanityFetch<Array<any>>(query, DEFAULT_TESTIMONIALS);
-      
-      if (result.data && result.data.length > 0) {
-        const formattedTestimonials = result.data.map(t => ({
-          quote: t.quote,
-          name: t.name,
-          position: t.position,
-          company: t.company,
-          avatar: t.avatar || null,
-          initials: t.initials || t.name.split(' ').map((n: string) => n[0]).join('').substring(0, 2),
-          avatarType: t.avatarType || 'initials'
-        }));
-        setTestimonials(formattedTestimonials);
-      }
-    }
-    fetchTestimonials();
-  }, []);
+  const testimonials = DEFAULT_TESTIMONIALS;
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 5000); // Change testimonial every 5 seconds
+    }, 5000);
     return () => clearInterval(interval);
   }, [testimonials.length]);
+
   return (
     <BentoCard className="md:col-span-2 md:row-span-1">
       <motion.div

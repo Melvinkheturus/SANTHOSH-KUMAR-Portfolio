@@ -7,53 +7,18 @@ import Image from "next/image";
 import { Eye } from "lucide-react";
 import { useState, useRef, useMemo, useCallback, useEffect } from "react";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { sanityFetch } from "@/sanity/lib/sanityFetch";
+import { PROJECTS_DATA } from "@/data/portfolioData";
 
-const DEFAULT_PROJECTS = [
-  {
-    _id: 'unisync-thumbnail',
-    _type: 'project',
-    title: 'Unisync Thumbnail',
-    thumbnail: '/thumbnail/Unisync thumbnail.mp4',
-    category: 'Video',
-    slug: 'unisync-thumbnail',
-  },
-  {
-    _id: 'examinerpro-cs',
-    _type: 'project',
-    title: 'ExaminerPro CS',
-    thumbnail: '/thumbnail/examinerpro-cs.jpg',
-    category: 'Web Development',
-    slug: 'examinerpro-cs',
-  },
-  {
-    _id: 'examinerpro-dev',
-    _type: 'project',
-    title: 'ExaminerPro Dev',
-    thumbnail: '/thumbnail/examinerpro-dev.jpg',
-    category: 'Web Development',
-    slug: 'examinerpro-dev',
-  },
-  {
-    _id: 'pixeldraft',
-    _type: 'project',
-    title: 'Pixeldraft',
-    thumbnail: '/thumbnail/pixeldraft.jpg',
-    category: 'Design',
-    slug: 'pixeldraft',
-  },
-  {
-    _id: 'rr-miracle-events',
-    _type: 'project',
-    title: 'RR Miracle Events',
-    thumbnail: '/thumbnail/rr-miracle-events.jpg',
-    category: 'Web Development',
-    slug: 'rr-miracle-events',
-  },
-];
+const DEFAULT_PROJECTS = PROJECTS_DATA.map((p) => ({
+  _id: p._id,
+  _type: 'project',
+  title: p.title,
+  thumbnail: p.thumbnail || '',
+  category: p.projectType,
+  slug: p.slug
+}));
 
 type ProjectItem = typeof DEFAULT_PROJECTS[0];
-type ProjectsData = ProjectItem[];
 
 interface ProjectCardProps {
   project: ProjectItem;
@@ -63,27 +28,11 @@ interface ProjectCardProps {
 }
 
 export default function Work() {
-  const [projectsData, setProjectsData] = useState<ProjectsData>(DEFAULT_PROJECTS);
+  const projectsData = DEFAULT_PROJECTS;
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [autoScroll, setAutoScroll] = useState(true);
   const autoScrollIntervalRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    async function fetchProjectsData() {
-      const query = `*[_type == "project"] | order(orderRank){
-        _id,
-        _type,
-        title,
-        "thumbnail": thumbnail.asset->url,
-        category,
-        "slug": slug.current
-      }`;
-      const result = await sanityFetch<ProjectsData>(query, DEFAULT_PROJECTS);
-      setProjectsData(result.data);
-    }
-    fetchProjectsData();
-  }, []);
   
   const projects = useMemo(() => {
     if (!projectsData) return [];

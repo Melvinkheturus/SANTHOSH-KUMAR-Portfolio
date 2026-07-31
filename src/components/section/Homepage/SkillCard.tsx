@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { FiChevronDown, FiLayout, FiCode, FiMonitor, FiPenTool } from "react-icons/fi";
 import SectionHeader from "../../ui/SectionHeader";
-import { sanityFetch } from "@/sanity/lib/sanityFetch";
 
 interface SkillCategory {
   id: number;
@@ -77,35 +76,7 @@ const iconMap: Record<string, React.ReactNode> = {
 export default function WhatIDo() {
   const [openCategory, setOpenCategory] = useState<number>(1);
   const cardRef = useRef<HTMLDivElement>(null);
-  const [skillData, setSkillData] = useState<SkillData>(DEFAULT_SKILLS);
-
-  // Fetch data from Sanity CMS
-  useEffect(() => {
-    async function fetchSkillData() {
-      const query = `*[_type == "skill"] | order(order asc){
-        _id,
-        title,
-        icon,
-        description,
-        skills,
-        order
-      }`;
-      const result = await sanityFetch<Array<any>>(query, DEFAULT_SKILLS.categories);
-      
-      if (result.data && result.data.length > 0) {
-        const categories = result.data.map((skill, index) => ({
-          id: index + 1,
-          title: skill.title,
-          icon: skill.icon,
-          description: skill.description,
-          skills: skill.skills,
-          order: skill.order
-        }));
-        setSkillData({ title: 'What I Do', categories });
-      }
-    }
-    fetchSkillData();
-  }, []);
+  const skillData = DEFAULT_SKILLS;
 
   const toggleCategory = (id: number) => {
     // Always keep one category open

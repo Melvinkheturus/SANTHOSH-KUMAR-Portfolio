@@ -1,12 +1,10 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { sanityFetch } from "@/sanity/lib/sanityFetch";
 
-// Default fallback data
-const DEFAULT_ABOUT = {
+const ABOUT_DATA = {
   title: 'Meet the Creator',
   sentences: [
     'Hi there i am Manikandan a designer and creative technologist passionate about crafting meaningful digital experiences.',
@@ -21,32 +19,9 @@ const DEFAULT_ABOUT = {
   ]
 };
 
-interface AboutData {
-  title: string;
-  sentences: string[];
-  highlightedWords: string[];
-}
-
 export default function About() {
   const contentRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(contentRef, { once: true, amount: 0.3 });
-  const [aboutData, setAboutData] = useState<AboutData>(DEFAULT_ABOUT);
-
-  // Fetch data from Sanity CMS
-  useEffect(() => {
-    async function fetchAboutData() {
-      const query = `*[_type == "about"][0]{
-        _id,
-        _type,
-        title,
-        sentences,
-        highlightedWords
-      }`;
-      const result = await sanityFetch<AboutData>(query, DEFAULT_ABOUT);
-      setAboutData(result.data);
-    }
-    fetchAboutData();
-  }, []);
 
   // Animation variants for sentence reveal
   const containerVariants = {
@@ -75,7 +50,7 @@ export default function About() {
   const highlightSentence = (sentence: string) => {
     let result: (string | React.ReactNode)[] = [sentence];
     
-    (aboutData.highlightedWords || []).forEach((word) => {
+    ABOUT_DATA.highlightedWords.forEach((word) => {
       const newResult: (string | React.ReactNode)[] = [];
       result.forEach((part) => {
         if (typeof part === 'string') {
@@ -101,7 +76,7 @@ export default function About() {
     return <>{result}</>;
   };
 
-  const sentences = (aboutData.sentences || DEFAULT_ABOUT.sentences).map(sentence => highlightSentence(sentence));
+  const sentences = ABOUT_DATA.sentences.map(sentence => highlightSentence(sentence));
 
   return (
     <motion.div
@@ -119,7 +94,7 @@ export default function About() {
       <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
       
       <div className="relative z-10">
-        <SectionHeader title={aboutData.title} />
+        <SectionHeader title={ABOUT_DATA.title} />
         
         <div 
           ref={contentRef} 

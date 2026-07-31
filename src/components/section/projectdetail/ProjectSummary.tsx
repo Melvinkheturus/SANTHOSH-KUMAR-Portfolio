@@ -1,19 +1,22 @@
 "use client";
 
 import { motion } from "framer-motion";
-import PortableTextComponent from "@/components/ui/PortableTextComponent";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 type ProjectSummaryProps = {
-  project: Project;
+  project: {
+    summary?: string[] | string;
+    contribution?: string;
+  };
 };
 
-interface Project {
-  summary?: any;
-  contribution?: string;
-}
-
 export default function ProjectSummary({ project }: ProjectSummaryProps) {
+  const summaryParagraphs = Array.isArray(project.summary)
+    ? project.summary
+    : typeof project.summary === "string"
+    ? [project.summary]
+    : [];
+
   return (
     <motion.div
       className="relative p-6 rounded-2xl bg-[#040406] border-[#1c0333] overflow-hidden"
@@ -32,13 +35,15 @@ export default function ProjectSummary({ project }: ProjectSummaryProps) {
           </div>
           
           <motion.div 
-            className="text-gray-300 text-sm leading-relaxed"
+            className="text-gray-300 text-sm leading-relaxed space-y-3"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
           >
-            {project.summary ? (
-              <PortableTextComponent blocks={project.summary} />
+            {summaryParagraphs.length > 0 ? (
+              summaryParagraphs.map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))
             ) : (
               <p>No summary available</p>
             )}

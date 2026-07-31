@@ -1,12 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React from 'react';
+import React, { useRef } from 'react';
 import { SiReact, SiFigma, SiFramer, SiTailwindcss, SiWordpress, SiNotion, SiGithub, SiSupabase, SiNextdotjs, SiTypescript, SiJavascript } from "react-icons/si";
 import { FaCode } from "react-icons/fa";
-import { useRef, useState, useEffect } from "react";
 import SectionHeader from "../../ui/SectionHeader";
-import { sanityFetch } from "@/sanity/lib/sanityFetch";
 
 // Generic marquee wrapper
 function InfiniteMarquee({ children, speed = 30, direction = "left" }: { children: React.ReactNode; speed?: number; direction?: "left" | "right" }) {
@@ -72,30 +70,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function Toolkit() {
   const cardRef = useRef<HTMLDivElement>(null);
-  const [toolkitData, setToolkitData] = useState<ToolkitData>(DEFAULT_TOOLKIT);
-
-  // Fetch data from Sanity CMS
-  useEffect(() => {
-    async function fetchToolkitData() {
-      const query = `*[_type == "tool"] | order(order asc){
-        _id,
-        name,
-        reactIcon,
-        order
-      }`;
-      const result = await sanityFetch<Array<any>>(query, DEFAULT_TOOLKIT.tools);
-      
-      if (result.data && result.data.length > 0) {
-        const tools = result.data.map(tool => ({
-          name: tool.name,
-          icon: tool.reactIcon || 'FaCode',
-          order: tool.order
-        }));
-        setToolkitData({ title: 'My Tool Kit', tools });
-      }
-    }
-    fetchToolkitData();
-  }, []);
+  const toolkitData = DEFAULT_TOOLKIT;
 
   // Tool names for text marquee
   const toolNames = (toolkitData.tools || DEFAULT_TOOLKIT.tools).map(t => t.name);

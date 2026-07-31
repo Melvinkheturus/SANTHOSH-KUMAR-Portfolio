@@ -1,12 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import PortableTextComponent from "@/components/ui/PortableTextComponent";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 type ProjectProblemSolutionProps = {
   title: string;
-  content: any;
+  content: string[] | string | any;
   color: string;
 };
 
@@ -16,6 +15,12 @@ export default function ProjectProblemSolution({
   color
 }: ProjectProblemSolutionProps) {
   const isLeftSide = title === "Problem";
+
+  const paragraphs = Array.isArray(content)
+    ? content
+    : typeof content === "string"
+    ? [content]
+    : [];
 
   return (
     <motion.div
@@ -51,9 +56,9 @@ export default function ProjectProblemSolution({
           <SectionHeader title={title} className="text-left" />
         </div>
 
-        <div className="text-gray-300 text-sm leading-relaxed">
-          {content ? (
-            <PortableTextComponent blocks={content} />
+        <div className="text-gray-300 text-sm leading-relaxed space-y-3">
+          {paragraphs.length > 0 ? (
+            paragraphs.map((p, idx) => <p key={idx}>{p}</p>)
           ) : (
             <p>No content available</p>
           )}
@@ -61,4 +66,4 @@ export default function ProjectProblemSolution({
       </div>
     </motion.div>
   );
-} 
+}

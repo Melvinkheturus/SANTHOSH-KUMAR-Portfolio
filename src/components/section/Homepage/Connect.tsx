@@ -1,12 +1,10 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { FaLinkedin, FaDribbble, FaInstagram, FaGithub, FaWhatsapp, FaTwitter, FaFacebook, FaYoutube, FaBehance, FaMedium } from "react-icons/fa";
 import { HiOutlineClipboardCopy } from "react-icons/hi";
-import { sanityFetch } from "@/sanity/lib/sanityFetch";
 
-// Default fallback data
 const DEFAULT_CONNECT = {
   email: 'smk.manikandan.dev@gmail.com',
   copiedText: 'Copied!',
@@ -19,19 +17,6 @@ const DEFAULT_CONNECT = {
   ]
 };
 
-interface SocialLink {
-  platform: string;
-  url: string;
-  label: string;
-}
-
-interface ConnectData {
-  email: string;
-  copiedText: string;
-  socialLinks: SocialLink[];
-}
-
-// Icon mapping
 const iconMap: Record<string, React.ReactNode> = {
   linkedin: <FaLinkedin size={18} />,
   dribbble: <FaDribbble size={18} />,
@@ -61,33 +46,16 @@ const colorMap: Record<string, string> = {
 export default function Connect() {
   const [copied, setCopied] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
-  const [connectData, setConnectData] = useState<ConnectData>(DEFAULT_CONNECT);
-
-  // Fetch data from Sanity CMS
-  useEffect(() => {
-    async function fetchConnectData() {
-      const query = `*[_type == "connect"][0]{
-        _id,
-        _type,
-        email,
-        copiedText,
-        socialLinks
-      }`;
-      const result = await sanityFetch<ConnectData>(query, DEFAULT_CONNECT);
-      setConnectData(result.data);
-    }
-    fetchConnectData();
-  }, []);
 
   const copyToClipboard = () => {
-    navigator.clipboard.writeText(connectData.email);
+    navigator.clipboard.writeText(DEFAULT_CONNECT.email);
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
     }, 2000);
   };
 
-  const socialLinks = (connectData.socialLinks || DEFAULT_CONNECT.socialLinks).map(link => ({
+  const socialLinks = DEFAULT_CONNECT.socialLinks.map(link => ({
     icon: iconMap[link.platform] || iconMap.github,
     url: link.url,
     color: colorMap[link.platform] || 'hover:text-gray-100',
@@ -106,15 +74,10 @@ export default function Connect() {
       role="region"
       aria-label="Connect with Manikandan"
     >
-
-      {/* Top-left corner glow */}
       <div className="absolute -top-20 -left-20 w-40 h-40 bg-purple-500/30 rounded-full blur-3xl pointer-events-none" />
-
-      {/* Bottom-right corner glow */}
       <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 h-full flex items-center justify-between gap-2 md:gap-4">
-        {/* Email section with copy button */}
         <div className="flex items-center min-w-0 flex-1">
           <motion.div
             className={`flex items-center justify-center px-2 py-1.5 md:px-4 md:py-2 rounded-full cursor-pointer transition-all duration-300 ${copied ? 'bg-purple-600/70' : 'bg-[#1a1a1a]/70'} backdrop-blur-sm min-w-0 max-w-full`}
@@ -135,7 +98,7 @@ export default function Connect() {
                   transition={{ duration: 0.2 }}
                   className="text-xs md:text-sm font-medium text-white whitespace-nowrap"
                 >
-                  {connectData.copiedText}
+                  {DEFAULT_CONNECT.copiedText}
                 </motion.span>
               ) : (
                 <motion.div
@@ -146,7 +109,7 @@ export default function Connect() {
                   transition={{ duration: 0.2 }}
                   className="flex items-center gap-1.5 md:gap-2 min-w-0"
                 >
-                  <span className="text-xs md:text-sm text-white font-medium truncate">{connectData.email}</span>
+                  <span className="text-xs md:text-sm text-white font-medium truncate">{DEFAULT_CONNECT.email}</span>
                   <HiOutlineClipboardCopy className="text-gray-300 hover:text-white transition-colors flex-shrink-0" size={14} />
                 </motion.div>
               )}
@@ -154,7 +117,6 @@ export default function Connect() {
           </motion.div>
         </div>
 
-        {/* Social icons */}
         <div className="flex items-center gap-2 md:gap-3 flex-shrink-0">
           {socialLinks.map((social, index) => (
             <motion.a

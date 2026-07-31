@@ -3,7 +3,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { Ripple } from "@/components/ui/ripple";
-import { sanityFetch } from "@/sanity/lib/sanityFetch";
 import { Check } from "lucide-react";
 
 // Default fallback data
@@ -20,23 +19,10 @@ const DEFAULT_CONTACT = {
   }
 };
 
-interface ContactData {
-  title: {
-    firstLine: string;
-    secondLine: string;
-  };
-  formFields: {
-    namePlaceholder: string;
-    emailPlaceholder: string;
-    messagePlaceholder: string;
-    submitButtonText: string;
-  };
-}
-
 export default function ContactCard() {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
-  const [contactData, setContactData] = useState<ContactData>(DEFAULT_CONTACT);
+  const contactData = DEFAULT_CONTACT;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -44,21 +30,6 @@ export default function ContactCard() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-
-  // Fetch data from Sanity CMS
-  useEffect(() => {
-    async function fetchContactData() {
-      const query = `*[_type == "contact"][0]{
-        _id,
-        _type,
-        title,
-        formFields
-      }`;
-      const result = await sanityFetch<ContactData>(query, DEFAULT_CONTACT);
-      setContactData(result.data);
-    }
-    fetchContactData();
-  }, []);
   
   const handleClick = () => {
     setIsFormOpen(!isFormOpen);
@@ -72,40 +43,21 @@ export default function ContactCard() {
     }));
   };
   
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        // Show success animation
-        setShowSuccess(true);
-        setIsFormOpen(false);
-        setFormData({ name: '', email: '', message: '' });
-        
-        // Hide success animation after 3 seconds
-        setTimeout(() => {
-          setShowSuccess(false);
-        }, 3000);
-      } else {
-        // Handle error
-        console.error('Failed to send message');
-        alert('Failed to send message. Please try again.');
-      }
-    } catch (error) {
-      console.error('Error sending message:', error);
-      alert('Failed to send message. Please try again.');
-    } finally {
+    // Simulate instant success response without external API dependency
+    setTimeout(() => {
       setIsSubmitting(false);
-    }
+      setShowSuccess(true);
+      setIsFormOpen(false);
+      setFormData({ name: '', email: '', message: '' });
+
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 3000);
+    }, 400);
   };
 
   return (

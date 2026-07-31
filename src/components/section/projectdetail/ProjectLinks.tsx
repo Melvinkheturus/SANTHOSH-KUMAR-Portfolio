@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Figma, ExternalLink, FileText } from "lucide-react";
+import { ExternalLink, FileText } from "lucide-react";
+import { FaGithub, FaFigma } from "react-icons/fa";
 import { ReactNode } from "react";
 import SectionHeader from "@/components/ui/SectionHeader";
 
@@ -43,8 +44,8 @@ export default function ProjectLinks({ links }: ProjectLinksProps) {
     if (!iconName) return <ExternalLink size={20} />;
     
     const icons: Record<string, ReactNode> = {
-      "github": <Github size={20} />,
-      "figma": <Figma size={20} />,
+      "github": <FaGithub size={20} />,
+      "figma": <FaFigma size={20} />,
       "external-link": <ExternalLink size={20} />,
       "file-text": <FileText size={20} />,
       "globe": <ExternalLink size={20} />,
