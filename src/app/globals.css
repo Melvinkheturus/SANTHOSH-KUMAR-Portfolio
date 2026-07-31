@@ -1,3 +1,9 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap');
+
+* {
+  font-family: Satoshi, "Satoshi Placeholder", sans-serif;
+}
+
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

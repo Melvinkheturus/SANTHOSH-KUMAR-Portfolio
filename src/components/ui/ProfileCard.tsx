@@ -60,7 +60,7 @@ export default function Profile() {
   return (
     <motion.div
       ref={cardRef}
-      className="relative h-full w-full p-6 rounded-2xl bg-[#040406] border-[#1c0333] overflow-hidden min-h-[450px] md:min-h-0"
+      className="relative h-full w-full p-6 rounded-2xl bg-[#0e0e12] border-[#2a1040] overflow-hidden min-h-[450px] md:min-h-0"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}

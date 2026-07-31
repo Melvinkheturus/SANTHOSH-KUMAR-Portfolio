@@ -64,7 +64,7 @@ export default function ContactCard() {
     <div className="col-span-1 h-full">
       <motion.div 
         ref={cardRef}
-        className="p-6 rounded-2xl bg-[#040406] border-#1c0333 relative h-full flex flex-col overflow-hidden"
+        className="p-6 rounded-2xl bg-[#0e0e12] border-#1c0333 relative h-full flex flex-col overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}

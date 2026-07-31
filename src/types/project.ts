@@ -1,83 +1,78 @@
-export interface ImageType {
-  url: string;
-  alt: string;
-  caption?: string;
-  title?: string;
-  location?: string;
-  keyFeature?: string;
-}
-
-export interface FeatureType {
+export interface CaseStudyData {
   title: string;
-  description: string;
-  imageUrl?: string;
-  icon?: string;
-}
-
-export interface TechItemType {
-  name: string;
-  icon?: string;
-}
-
-export interface LinkIconType {
-  type: 'library' | 'image';
-  libraryIcon?: string;
-  customImage?: string;
-}
-
-export interface LinkType {
-  type: string;
-  url: string;
-  icon: LinkIconType | null;
-}
-
-export interface ArtifactType {
-  type: string;
-  url: string;
-}
-
-export interface ProcessPhaseType {
-  phase: string;
-  description: string;
-  artifacts?: ArtifactType[];
-}
-
-export interface ResultType {
-  metric: string;
-  value: string;
-  description: string;
-}
-
-export interface CasestudyType {
-  title: string;
-  subtitle?: string;
+  subtitle: string;
   category: string;
-  timeline?: string;
+  client?: string;
   role?: string;
-  projectType?: string;
-  thumbnail?: string;
-  heroImage?: string;
-  techStack?: TechItemType[];
-  summary?: string[];
-  contribution?: string;
-  problem?: string[];
-  solution?: string[];
-  features?: FeatureType[];
-  processPhases?: ProcessPhaseType[];
-  results?: ResultType[];
-  links?: LinkType[];
-  visualShowcase?: ImageType[];
-  mobileShowcase?: ImageType[];
-  mobileFeatures?: FeatureType[];
-  slug?: { current: string } | string;
+  timeline?: string;
+  impactMetric?: string;
+  problem: string;
+  approach: string;
+  designDecisions: string[];
+  technicalArchitecture: string[];
+  aiAutomation?: string[];
+  challenges?: string[];
+  results: { metric: string; description: string }[];
+  keyLearnings: string[];
+  techStack: string[];
+  links?: { label: string; url: string; icon?: string }[];
+  visuals?: { title: string; url: string; caption?: string }[];
 }
 
-export interface Project {
-  _id: string;
+export interface FeaturedProject {
+  id: string;
   title: string;
-  slug: string;
-  projectType: string;
-  position: number;
-  thumbnail?: string;
-  casestudy?: CasestudyType;
+  subtitle: string;
+  category: string;
+  impactBadge: string;
+  thumbnail: string;
+  isVideo?: boolean;
+  tags: string[];
+  link?: string;
+  caseStudy: CaseStudyData;
+}
+
+export interface CapabilityBlock {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: string;
+  items: string[];
+}
+
+export interface TechGroup {
+  category: string;
+  tools: { name: string; icon?: string; badge?: string }[];
+}
+
+export interface CreativeItem {
+  id: string;
+  title: string;
+  category: string;
+  thumbnail: string;
+  isVideo?: boolean;
+  aspect?: 'square' | 'video' | 'portrait';
+}
+
+export interface ImpactStat {
+  number: string;
+  label: string;
+  sublabel: string;
+}
+
+export interface ExperienceItem {
+  period: string;
+  role: string;
+  company: string;
+  description: string;
+  skills: string[];
+}
+
+export interface TestimonialItem {
+  quote: string;
+  name: string;
+  position: string;
+  company: string;
+  initials: string;
+  avatar?: string;
 }

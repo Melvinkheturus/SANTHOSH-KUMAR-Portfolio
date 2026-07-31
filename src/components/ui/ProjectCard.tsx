@@ -20,7 +20,7 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <motion.div
-      className={`relative w-full p-6 rounded-2xl bg-[#040406] border border-[#1c0333] overflow-hidden ${className || ""}`}
+      className={`relative w-full p-6 rounded-2xl bg-[#0e0e12] overflow-hidden ${className || ""}`}
       initial={initial}
       animate={animate}
       transition={transition}

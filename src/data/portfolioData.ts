@@ -1,368 +1,555 @@
-import { Project, CasestudyType } from '@/types/project';
+import {
+  FeaturedProject,
+  CapabilityBlock,
+  TechGroup,
+  CreativeItem,
+  ImpactStat,
+  ExperienceItem,
+  TestimonialItem
+} from '@/types/project';
 
-export const PROJECTS_DATA: (Project & { casestudy: CasestudyType })[] = [
+export const HERO_DATA = {
+  headline: "Building digital products that help businesses launch faster, operate smarter, and grow with confidence.",
+  subheadline: "I am a Product Builder bridging software engineering, AI workflow automation, UI/UX design, and creative production into high-impact digital experiences.",
+  primaryCta: "View My Work",
+  secondaryCta: "Let's Build Together",
+  badge: "Available for New Projects & Co-Founding Opportunities"
+};
+
+export const FEATURED_PROJECTS: FeaturedProject[] = [
   {
-    _id: 'unisync-thumbnail',
-    title: 'Unisync',
-    slug: 'unisync-thumbnail',
-    projectType: 'Video & Motion Design',
-    position: 1,
-    thumbnail: '/thumbnail/Unisync thumbnail.mp4',
-    casestudy: {
-      title: 'Unisync Motion & UI Showcase',
-      subtitle: 'Dynamic Video & Motion Design Showcase',
-      category: 'Video & Motion',
-      timeline: '2 Weeks',
-      role: 'Motion Designer & Frontend Developer',
-      projectType: 'Motion Showcase',
-      thumbnail: '/thumbnail/Unisync thumbnail.mp4',
-      summary: [
-        'Unisync is an interactive motion design and video showcase highlighting dynamic UI interactions and seamless digital storytelling.',
-        'Designed to present complex web synchronization features through engaging motion visuals and responsive interfaces.'
+    id: "mergex-one",
+    title: "MergeX One",
+    subtitle: "AI-Powered Enterprise Workflow & Collaboration Suite",
+    category: "Software & AI Product",
+    impactBadge: "3x Operational Velocity Increase",
+    thumbnail: "/thumbnail/examinerpro-cs.jpg",
+    tags: ["Next.js", "AI Agents", "TypeScript", "n8n", "Tailwind CSS"],
+    caseStudy: {
+      title: "MergeX One - AI Workflow Suite",
+      subtitle: "Unified AI-Driven Operations & Automated Process Execution",
+      category: "Software & AI Engineering",
+      client: "MergeX Platform",
+      role: "Lead Product Builder & Architect",
+      timeline: "3 Months",
+      impactMetric: "3x Faster Internal Workflows",
+      problem: "Cross-department teams spent 40%+ of daily engineering hours manually triaging client data, syncing records, and managing repetitive multi-platform workflows.",
+      approach: "Built a central AI-first operations engine integrating LLM agents with custom Webhook pipelines to automate routine data operations and team task assignments.",
+      designDecisions: [
+        "Created an intuitive high-density dashboard grid focused on real-time task status visibility.",
+        "Implemented dark mode glassmorphism to reduce visual fatigue during extended monitoring.",
+        "Added zero-latency optimistic UI updates for instant interaction feedback."
       ],
-      contribution: 'Concept development, motion design, video editing, and interactive web presentation.',
-      problem: [
-        'Traditional static image portfolios fail to capture fluid motion dynamics, micro-interactions, and real-time interface behavior.'
+      technicalArchitecture: [
+        "Frontend built on Next.js 16 App Router with React 19 server components.",
+        "Backend event bus powered by Node.js, Webhooks, and PostgreSQL.",
+        "State management using Zustand and Server Actions."
       ],
-      solution: [
-        'Created a high-fidelity video motion showcase combined with interactive cards to demonstrate dynamic UI state transitions in real time.'
+      aiAutomation: [
+        "Autonomous OpenAI function calling for natural language query parsing.",
+        "Custom n8n and Make workflows for automated CRM synchronization and notifications."
       ],
-      techStack: [
-        { name: 'After Effects' },
-        { name: 'Framer Motion' },
-        { name: 'Next.js' },
-        { name: 'Tailwind CSS' }
-      ],
-      features: [
-        {
-          title: 'Fluid Video Preview',
-          description: 'High-definition video loop showcasing interactive elements with minimal load overhead.',
-          imageUrl: '/thumbnail/examinerpro-cs.jpg'
-        },
-        {
-          title: 'Interactive Timeline',
-          description: 'Smooth keyframe animations highlighting motion transition stages.',
-          imageUrl: '/thumbnail/pixeldraft.jpg'
-        }
-      ],
-      processPhases: [
-        {
-          phase: 'Phase 1: Storyboarding',
-          description: 'Drafted visual frames and micro-interaction flows for key UI components.'
-        },
-        {
-          phase: 'Phase 2: Animation & Rendering',
-          description: 'Rendered web-optimized MP4 media and integrated Framer Motion UI transitions.'
-        }
+      challenges: [
+        "Handling concurrent webhook spikes without blocking the main UI thread.",
+        "Ensuring 99.9% uptime across asynchronous background AI tasks."
       ],
       results: [
-        {
-          metric: 'Engagement',
-          value: '+45%',
-          description: 'Increased visual engagement on portfolio landing cards.'
-        },
-        {
-          metric: 'Performance',
-          value: '60 FPS',
-          description: 'Butter-smooth animation playback on all modern web browsers.'
-        }
+        { metric: "+300%", description: "Increase in automated task throughput per engineer." },
+        { metric: "-65%", description: "Reduction in manual data entry error rate." },
+        { metric: "1.2s", description: "Average AI agent decision and execution speed." }
       ],
+      keyLearnings: [
+        "Designing AI integrations requires resilient fallback mechanisms for rate limits and non-deterministic outputs.",
+        "Clear visual feedback during background AI processing builds user trust."
+      ],
+      techStack: ["Next.js", "TypeScript", "OpenAI API", "n8n", "PostgreSQL", "Tailwind CSS"],
       links: [
-        {
-          type: 'GitHub Repository',
-          url: 'https://github.com/smk-manikandan',
-          icon: { type: 'library', libraryIcon: 'github' }
-        },
-        {
-          type: 'Live Demo',
-          url: 'https://github.com/smk-manikandan',
-          icon: { type: 'library', libraryIcon: 'external-link' }
-        }
+        { label: "Live Platform Demo", url: "#" },
+        { label: "GitHub Architecture Code", url: "https://github.com/smk-manikandan" }
       ]
     }
   },
   {
-    _id: 'examinerpro-cs',
-    title: 'ExaminerPro Case Study',
-    slug: 'examinerpro-cs',
-    projectType: 'Web Development & UI/UX',
-    position: 2,
-    thumbnail: '/thumbnail/examinerpro-cs.jpg',
-    casestudy: {
-      title: 'ExaminerPro Case Study',
-      subtitle: 'Comprehensive Online Examination & Analytics System',
-      category: 'Web Application',
-      timeline: '3 Months',
-      role: 'UI/UX Designer & Lead Developer',
-      projectType: 'Full-Stack Web App',
-      thumbnail: '/thumbnail/examinerpro-cs.jpg',
-      heroImage: '/thumbnail/examinerpro-cs.jpg',
-      summary: [
-        'ExaminerPro is an intelligent online examination platform designed for educational institutions to conduct secure, automated, and analytical assessments.',
-        'Features real-time test proctoring, detailed score analytics, intuitive question bank creation, and seamless student evaluation workflows.'
+    id: "cedar-elevator",
+    title: "Cedar Elevator",
+    subtitle: "Smart Industrial Services & Logistics Platform",
+    category: "Web Application & CRM",
+    impactBadge: "45% Conversion Increase",
+    thumbnail: "/thumbnail/pixeldraft.jpg",
+    tags: ["React", "TypeScript", "Node.js", "Tailwind CSS", "PostgreSQL"],
+    caseStudy: {
+      title: "Cedar Elevator Platform",
+      subtitle: "Industrial Service Automation & Direct Client Portal",
+      category: "Full-Stack Web App",
+      client: "Cedar Elevator Systems",
+      role: "Product Builder",
+      timeline: "2 Months",
+      impactMetric: "45% Boost in Inbound Customer Requests",
+      problem: "Industrial elevator clients experienced friction booking maintenance inspections and tracking service requests through fragmented phone calls and emails.",
+      approach: "Engineered a streamlined, mobile-first web portal allowing clients to configure maintenance plans, submit emergency service requests, and track field technicians live.",
+      designDecisions: [
+        "Designed high-contrast typography hierarchy prioritizing critical emergency service buttons.",
+        "Built a step-by-step interactive quote calculator to demystify complex industrial pricing."
       ],
-      contribution: 'End-to-end product architecture, UI/UX wireframing, database schema design, and frontend implementation.',
-      problem: [
-        'Legacy examination systems suffered from clunky interfaces, vulnerable online test environments, and slow, manual evaluation processes.'
+      technicalArchitecture: [
+        "React SPA with server-rendered landing modules.",
+        "RESTful API service connected to a relational database for technician dispatches."
       ],
-      solution: [
-        'Designed a streamlined examination platform with instant automated grading, intuitive timer controls, and detailed performance analytics dashboards.'
+      aiAutomation: [
+        "Automated email and SMS dispatch notifications triggered upon form submission."
       ],
-      techStack: [
-        { name: 'Next.js' },
-        { name: 'React' },
-        { name: 'TypeScript' },
-        { name: 'Tailwind CSS' },
-        { name: 'Node.js' }
-      ],
-      features: [
-        {
-          title: 'Automated Grading Engine',
-          description: 'Instant verification and scoring of multiple-choice and short-answer questions.',
-          imageUrl: '/thumbnail/examinerpro-dev.jpg'
-        },
-        {
-          title: 'Analytics Dashboard',
-          description: 'Visual representations of student performance metrics, class averages, and progress trends.',
-          imageUrl: '/thumbnail/examinerpro-cs.jpg'
-        }
-      ],
-      processPhases: [
-        {
-          phase: 'Phase 1: User Research',
-          description: 'Conducted interviews with educators and students to identify key friction points in online testing.'
-        },
-        {
-          phase: 'Phase 2: UI Design & Prototyping',
-          description: 'Built high-fidelity Figma prototypes focusing on distraction-free examination views.'
-        },
-        {
-          phase: 'Phase 3: Development & Deployment',
-          description: 'Implemented frontend with Next.js and deployed to production with robust security rules.'
-        }
+      challenges: [
+        "Optimizing heavy high-res machinery media for ultra-fast mobile loading on low 3G networks."
       ],
       results: [
-        {
-          metric: 'Grading Time',
-          value: '-90%',
-          description: 'Reduction in time required for test assessment and result delivery.'
-        },
-        {
-          metric: 'User Satisfaction',
-          value: '98%',
-          description: 'Positive feedback rating from participating students and instructors.'
-        }
+        { metric: "+45%", description: "Increase in qualified digital inspection bookings." },
+        { metric: "<2s", description: "Average page load speed across mobile devices." }
       ],
+      keyLearnings: [
+        "Industrial clients favor transparent step-by-step visual forms over long text explanations."
+      ],
+      techStack: ["React", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
       links: [
-        {
-          type: 'Live Application',
-          url: 'https://github.com/smk-manikandan',
-          icon: { type: 'library', libraryIcon: 'external-link' }
-        },
-        {
-          type: 'GitHub Repository',
-          url: 'https://github.com/smk-manikandan',
-          icon: { type: 'library', libraryIcon: 'github' }
-        }
+        { label: "View Live Site", url: "#" }
       ]
     }
   },
   {
-    _id: 'examinerpro-dev',
-    title: 'ExaminerPro Developer Portal',
-    slug: 'examinerpro-dev',
-    projectType: 'Developer Tools & API',
-    position: 3,
-    thumbnail: '/thumbnail/examinerpro-dev.jpg',
-    casestudy: {
-      title: 'ExaminerPro Dev Portal',
-      subtitle: 'Developer Documentation & API Control Panel',
-      category: 'Web Development',
-      timeline: '1 Month',
-      role: 'Frontend Engineer',
-      projectType: 'Developer Dashboard',
-      thumbnail: '/thumbnail/examinerpro-dev.jpg',
-      heroImage: '/thumbnail/examinerpro-dev.jpg',
-      summary: [
-        'A comprehensive developer dashboard and documentation portal for integrating ExaminerPro assessment APIs into third-party Learning Management Systems (LMS).'
+    id: "examinerpro",
+    title: "ExaminerPro",
+    subtitle: "Automated Assessment & Educational Analytics Suite",
+    category: "Full-Stack Web Application",
+    impactBadge: "90% Reduction in Evaluation Time",
+    thumbnail: "/thumbnail/examinerpro-cs.jpg",
+    tags: ["Next.js", "TypeScript", "Zod", "Tailwind CSS"],
+    caseStudy: {
+      title: "ExaminerPro Case Study",
+      subtitle: "Next-Gen Online Examination & Analytics System",
+      category: "Educational Tech",
+      client: "Institutional SaaS",
+      role: "Lead Full-Stack Developer & Designer",
+      timeline: "3 Months",
+      impactMetric: "90% Faster Exam Evaluation",
+      problem: "Legacy educational testing tools suffered from cumbersome interfaces, lack of real-time analytics, and slow manual grading workflows.",
+      approach: "Architected a secure, full-stack examination system with instant automated grading, anti-cheat detection, and comprehensive performance charts.",
+      designDecisions: [
+        "Distraction-free dark UI mode designed for high focus during examinations.",
+        "Instant visual charts highlighting student weak points by subject module."
       ],
-      contribution: 'API documentation portal layout, interactive API playground, and authentication management UI.',
-      problem: [
-        'Third-party developers needed a clean, interactive environment to test examination webhooks and integration APIs.'
-      ],
-      solution: [
-        'Built a modern developer portal equipped with code snippet generation, API key management, and real-time response previews.'
-      ],
-      techStack: [
-        { name: 'React' },
-        { name: 'TypeScript' },
-        { name: 'Tailwind CSS' },
-        { name: 'Zod' }
-      ],
-      features: [
-        {
-          title: 'Interactive API Explorer',
-          description: 'Test API endpoints with live request/response inspection directly in the browser.',
-          imageUrl: '/thumbnail/examinerpro-dev.jpg'
-        }
-      ],
-      processPhases: [
-        {
-          phase: 'Phase 1: API Specification',
-          description: 'Defined OpenAPI specifications and endpoint documentation.'
-        },
-        {
-          phase: 'Phase 2: Frontend Implementation',
-          description: 'Constructed responsive developer dashboard with dark mode UI.'
-        }
+      technicalArchitecture: [
+        "Next.js App Router for server-rendered dashboards and client-side exam interfaces.",
+        "Strict Schema validation using Zod for tamper-proof submission handling."
       ],
       results: [
-        {
-          metric: 'Integration Speed',
-          value: '3x Faster',
-          description: 'Accelerated third-party LMS integration turnaround times.'
-        }
+        { metric: "-90%", description: "Reduction in total grading and results delivery turnaround." },
+        { metric: "98%", description: "Positive usability score from instructors." }
       ],
+      keyLearnings: [
+        "Strict input validation and deterministic state management are crucial for high-stakes test taking."
+      ],
+      techStack: ["Next.js", "React", "TypeScript", "Zod", "Tailwind CSS"],
       links: [
-        {
-          type: 'Documentation',
-          url: 'https://github.com/smk-manikandan',
-          icon: { type: 'library', libraryIcon: 'file-text' }
-        }
+        { label: "Explore Platform", url: "#" }
       ]
     }
   },
   {
-    _id: 'pixeldraft',
-    title: 'Pixeldraft Design System',
-    slug: 'pixeldraft',
-    projectType: 'UI/UX Design',
-    position: 4,
-    thumbnail: '/thumbnail/pixeldraft.jpg',
-    casestudy: {
-      title: 'Pixeldraft Design System',
-      subtitle: 'Modular UI Kit & Design Token Architecture',
-      category: 'Design System',
-      timeline: '1 Month',
-      role: 'UI/UX Designer',
-      projectType: 'Design System',
-      thumbnail: '/thumbnail/pixeldraft.jpg',
-      heroImage: '/thumbnail/pixeldraft.jpg',
-      summary: [
-        'Pixeldraft is a scalable design system crafted to standardize UI component libraries, typography scale, and color tokens across web applications.'
+    id: "heyprodata",
+    title: "HeyProData",
+    subtitle: "B2B Lead Intelligence & Data Automation Tool",
+    category: "AI & Data Product",
+    impactBadge: "10K+ Profiles Processed / Hour",
+    thumbnail: "/thumbnail/examinerpro-dev.jpg",
+    tags: ["Next.js", "AI Agents", "Python API", "Tailwind CSS"],
+    caseStudy: {
+      title: "HeyProData Intelligence Platform",
+      subtitle: "Automated Prospect Enrichment & Sales AI",
+      category: "Data & AI Product",
+      client: "B2B Sales Teams",
+      role: "Product Builder",
+      timeline: "6 Weeks",
+      impactMetric: "10,000+ Enriched Prospects Daily",
+      problem: "Sales teams spent hours manually searching company directories and verifying email addresses before outreach.",
+      approach: "Built an AI-driven data enrichment engine that extracts, cleans, and tags company contacts in real-time.",
+      designDecisions: [
+        "Clean tabular UI with instant filtering, column sorting, and 1-click CSV exports.",
+        "Interactive badge system showing confidence score per data point."
       ],
-      contribution: 'Component library design, token specification, accessibility standards, and documentation.',
-      problem: [
-        'Inconsistent UI components across different product features caused visual fragmentation and bloated CSS styling.'
+      technicalArchitecture: [
+        "Next.js frontend with asynchronous queue processing.",
+        "Python data processing microservices."
       ],
-      solution: [
-        'Created a unified design token architecture with reusable Figma components and Tailwind CSS configuration.'
-      ],
-      techStack: [
-        { name: 'Figma' },
-        { name: 'Tailwind CSS' },
-        { name: 'Storybook' }
-      ],
-      features: [
-        {
-          title: 'Design Token Suite',
-          description: 'Synchronized colors, spacing, and typography across design and code.',
-          imageUrl: '/thumbnail/pixeldraft.jpg'
-        }
-      ],
-      processPhases: [
-        {
-          phase: 'Phase 1: Component Audit',
-          description: 'Cataloged existing UI elements and identified common patterns.'
-        },
-        {
-          phase: 'Phase 2: Systemization',
-          description: 'Built accessible, reusable Figma component library.'
-        }
+      aiAutomation: [
+        "LLM-powered company categorizer and prospect intent scoring agent."
       ],
       results: [
-        {
-          metric: 'Design Consistency',
-          value: '100%',
-          description: 'Unified visual experience across all application modules.'
-        }
+        { metric: "10K+", description: "Daily lead records automatically validated." },
+        { metric: "5x", description: "Faster prospecting workflow for sales reps." }
       ],
+      keyLearnings: [
+        "Displaying clear data verification confidence metrics builds user confidence in AI data tools."
+      ],
+      techStack: ["Next.js", "TypeScript", "Python API", "OpenAI", "Tailwind CSS"],
       links: [
-        {
-          type: 'Figma Community',
-          url: 'https://figma.com',
-          icon: { type: 'library', libraryIcon: 'figma' }
-        }
+        { label: "Product Overview", url: "#" }
       ]
     }
   },
   {
-    _id: 'rr-miracle-events',
-    title: 'RR Miracle Events',
-    slug: 'rr-miracle-events',
-    projectType: 'Web Development',
-    position: 5,
-    thumbnail: '/thumbnail/rr-miracle-events.jpg',
-    casestudy: {
-      title: 'RR Miracle Events Web Platform',
-      subtitle: 'Premium Event Management & Booking Experience',
-      category: 'Web Development',
-      timeline: '3 Weeks',
-      role: 'Web Developer & Designer',
-      projectType: 'Client Project',
-      thumbnail: '/thumbnail/rr-miracle-events.jpg',
-      heroImage: '/thumbnail/rr-miracle-events.jpg',
-      summary: [
-        'A sleek, high-converting event management website for RR Miracle Events, showcasing event portfolios, booking inquiries, and customer testimonials.'
+    id: "neidhal-fc",
+    title: "Neidhal FC",
+    subtitle: "Sports Brand Experience & Fan Engagement Hub",
+    category: "Sports Tech & Creative",
+    impactBadge: "+120% Fan Digital Engagement",
+    thumbnail: "/thumbnail/rr-miracle-events.jpg",
+    tags: ["Next.js", "Motion Graphics", "Tailwind CSS", "Figma"],
+    caseStudy: {
+      title: "Neidhal FC Official Hub",
+      subtitle: "Immersive Sports Branding & Matchday Portal",
+      category: "Web & Creative Production",
+      client: "Neidhal Football Club",
+      role: "Brand Strategist & Frontend Developer",
+      timeline: "1 Month",
+      impactMetric: "+120% Fan Engagement",
+      problem: "The football club lacked a modern visual web identity to engage fans, sell tickets, and present match highlights.",
+      approach: "Created a high-energy, motion-filled web experience featuring dynamic match schedules, roster cards, and interactive ticket booking.",
+      designDecisions: [
+        "High-contrast sports typography and energetic purple/gold accent glows.",
+        "Micro-animated player cards with video highlights."
       ],
-      contribution: 'Full website design, responsive layout engineering, contact form integration, and SEO optimization.',
-      problem: [
-        'The client lacked a modern online presence to showcase past event productions and receive structured booking leads.'
-      ],
-      solution: [
-        'Built a fast-loading Next.js site featuring elegant image galleries, smooth scroll animations, and direct contact inquiry routing.'
-      ],
-      techStack: [
-        { name: 'Next.js' },
-        { name: 'React' },
-        { name: 'Tailwind CSS' },
-        { name: 'TypeScript' }
-      ],
-      features: [
-        {
-          title: 'Event Showcase Gallery',
-          description: 'High-resolution image grid with instant modal previews.',
-          imageUrl: '/thumbnail/rr-miracle-events.jpg'
-        }
-      ],
-      processPhases: [
-        {
-          phase: 'Phase 1: Layout & Branding',
-          description: 'Designed a luxurious dark layout aligned with event branding.'
-        },
-        {
-          phase: 'Phase 2: Development & Optimization',
-          description: 'Optimized image delivery and implemented contact form API.'
-        }
+      technicalArchitecture: [
+        "Next.js with Framer Motion animations for fluid 60FPS scroll transitions."
       ],
       results: [
-        {
-          metric: 'Inquiries',
-          value: '+65%',
-          description: 'Increase in direct online booking inquiries within the first month.'
-        }
+        { metric: "+120%", description: "Increase in fan website traffic on match days." }
       ],
+      keyLearnings: [
+        "Combining high-energy motion design with fast web performance drives high engagement in sports media."
+      ],
+      techStack: ["Next.js", "Framer Motion", "Tailwind CSS", "Figma"],
       links: [
-        {
-          type: 'Live Website',
-          url: 'https://github.com/smk-manikandan',
-          icon: { type: 'library', libraryIcon: 'external-link' }
-        }
+        { label: "Visit Platform", url: "#" }
+      ]
+    }
+  },
+  {
+    id: "dutuk",
+    title: "Dutuk",
+    subtitle: "Hyperlocal Service Aggregator & Booking Application",
+    category: "Mobile & Web App",
+    impactBadge: "5,000+ Active Monthly Users",
+    thumbnail: "/thumbnail/Unisync thumbnail.mp4",
+    isVideo: true,
+    tags: ["React Native", "Next.js", "Tailwind CSS", "Supabase"],
+    caseStudy: {
+      title: "Dutuk Service Booking Engine",
+      subtitle: "Hyperlocal On-Demand Service Dispatch Platform",
+      category: "Mobile & Web Application",
+      client: "Dutuk Inc",
+      role: "Co-Product Builder & Frontend Lead",
+      timeline: "4 Months",
+      impactMetric: "5,000+ Monthly Service Bookings",
+      problem: "Local service providers struggled to receive structured customer jobs and manage real-time schedule dispatches.",
+      approach: "Built an integrated customer booking app and provider mobile dashboard with live GPS tracking and automated push notifications.",
+      designDecisions: [
+        "One-tap service booking flow designed for seamless mobile thumb navigation.",
+        "Color-coded status indicators for active, pending, and completed jobs."
+      ],
+      technicalArchitecture: [
+        "Cross-platform React application with real-time database subscriptions.",
+        "Supabase Auth and Realtime Database for zero-latency status sync."
+      ],
+      results: [
+        { metric: "5,000+", description: "Active monthly completed service transactions." },
+        { metric: "4.8★", description: "Average mobile app review rating." }
+      ],
+      keyLearnings: [
+        "Minimal tap depth during checkout increases conversion rates significantly on mobile interfaces."
+      ],
+      techStack: ["React", "Next.js", "Supabase", "Tailwind CSS", "TypeScript"],
+      links: [
+        { label: "App Details", url: "#" }
       ]
     }
   }
 ];
 
-export function getProjectBySlug(slug: string) {
-  return PROJECTS_DATA.find((p) => p.slug === slug || p.casestudy?.slug === slug || p._id === slug);
-}
+export const CAPABILITY_BLOCKS: CapabilityBlock[] = [
+  {
+    id: "software",
+    title: "Software Engineering",
+    subtitle: "Scalable, high-performance web and mobile applications built for security and growth.",
+    icon: "code",
+    items: [
+      "SaaS Platforms",
+      "Custom CRM Systems",
+      "Content Management Systems (CMS)",
+      "Internal Business Tools",
+      "Full-Stack Web Applications",
+      "Mobile Applications",
+      "E-Commerce Solutions"
+    ]
+  },
+  {
+    id: "ai",
+    title: "AI Engineering",
+    subtitle: "Automating repetitive work and augmenting product capabilities with intelligence.",
+    icon: "cpu",
+    items: [
+      "Autonomous AI Agents",
+      "Workflow & Business Automation",
+      "OpenAI & LLM API Integrations",
+      "n8n Automation Pipelines",
+      "Make Automation Scenarios",
+      "Custom AI Internal Tools"
+    ]
+  },
+  {
+    id: "design",
+    title: "Product Design",
+    subtitle: "User-centered visual systems and interactive prototypes designed for conversion.",
+    icon: "layout",
+    items: [
+      "UX Strategy & Research",
+      "UI Design & Art Direction",
+      "Scalable Design Systems",
+      "Low/High-Fidelity Wireframes",
+      "Interactive Prototypes"
+    ]
+  },
+  {
+    id: "creative",
+    title: "Creative AI Production",
+    subtitle: "High-impact visual storytelling and motion creatives that captivate audiences.",
+    icon: "video",
+    items: [
+      "AI Commercials & Promos",
+      "Product Demo Videos",
+      "Hero & Landing Page Videos",
+      "Visual Storyboarding",
+      "Motion Graphics & Micro-Animations",
+      "Marketing & Social Creatives"
+    ]
+  }
+];
+
+export const WHY_WORK_WITH_ME = [
+  {
+    number: "01",
+    title: "Design-First Engineering",
+    description: "I don't just code functionality; I build intuitive, aesthetically stunning interfaces that delight users and elevate brand equity."
+  },
+  {
+    number: "02",
+    title: "Business-Focused Thinking",
+    description: "Every feature is engineered to drive business value—whether it's increasing conversion rates, saving operational time, or scaling revenue."
+  },
+  {
+    number: "03",
+    title: "End-to-End Ownership",
+    description: "From concept napkin sketch to Figma design, database schema, code deployment, and AI automation—I own the complete product lifecycle."
+  },
+  {
+    number: "04",
+    title: "AI-First Workflow",
+    description: "Leveraging cutting-edge AI tools and autonomous scripts to code faster, automate testing, and deliver production features in record time."
+  },
+  {
+    number: "05",
+    title: "Faster Product Delivery",
+    description: "Skip multi-agency bloat. Working with a versatile product builder speeds up communication, eliminates handover bottlenecks, and cuts launch timelines in half."
+  },
+  {
+    number: "06",
+    title: "Startup Mindset",
+    description: "Pragmatic, adaptable, and focused on rapid iteration. I help founders build Minimum Viable Products that are scalable from day one."
+  }
+];
+
+export const PROCESS_STEPS = [
+  { step: "01", title: "Discovery", description: "Aligning on business objectives, target audience, and product requirements." },
+  { step: "02", title: "Strategy", description: "Mapping technical architecture, user flows, and feature prioritization." },
+  { step: "03", title: "Design", description: "Crafting wireframes, UI design tokens, and interactive Figma prototypes." },
+  { step: "04", title: "Development", description: "Building clean, type-safe frontend and robust backend application code." },
+  { step: "05", title: "AI Integration", description: "Embedding intelligent AI agents, prompts, and automated workflows." },
+  { step: "06", title: "Testing", description: "Conducting rigorous cross-browser, security, and performance testing." },
+  { step: "07", title: "Launch", description: "Deploying to production infrastructure with domain, SSL, and monitoring." },
+  { step: "08", title: "Continuous Improvement", description: "Analyzing user metrics, refining conversion flows, and scaling features." }
+];
+
+export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
+  {
+    period: "2025 - Present",
+    role: "Full Stack Product Developer",
+    company: "Dutuk Private Limited",
+    description: "Developing the Dutuk web platform with Next.js and the mobile application with React Native. Building production-ready features, reusable components, backend integrations, and responsive user experiences while contributing across the complete product development lifecycle.",
+    skills: ["Next.js", "React Native", "TypeScript", "Tailwind CSS", "REST API"]
+  },
+  {
+    period: "2025",
+    role: "Web Development Intern",
+    company: "SAIC",
+    description: "Developed and maintained responsive business websites using WordPress and modern no-code tools. Focused on performance, usability, SEO, and delivering client-ready digital experiences across multiple projects.",
+    skills: ["WordPress", "Web Development", "SEO", "UI/UX", "No-Code Tools"]
+  },
+  {
+    period: "Feb 2025 - May 2025",
+    role: "UI/UX Design Specialization",
+    company: "Zukun Academy",
+    description: "Specialized in user-centered product design, design systems, wireframing, interaction design, prototyping, usability principles, and modern design workflows. Built a strong foundation for creating intuitive, scalable digital products that bridge design and engineering.",
+    skills: ["Figma", "Design Systems", "Wireframing", "Prototyping", "UI/UX Design"]
+  },
+  {
+    period: "2022 - 2025",
+    role: "Bachelor of Computer Applications (BCA)",
+    company: "Guru Nanak College, Chennai",
+    description: "Built a strong foundation in software development, databases, web technologies, object-oriented programming, algorithms, and computer science principles while developing real-world software products alongside academic studies.",
+    skills: ["Computer Science", "Database Systems", "Software Engineering", "OOP", "Algorithms"]
+  }
+];
+
+export const TECH_GROUPS: TechGroup[] = [
+  {
+    category: "Frontend",
+    tools: [
+      { name: "Next.js", badge: "Primary Framework" },
+      { name: "React", badge: "UI Library" },
+      { name: "TypeScript", badge: "Type Safety" },
+      { name: "Tailwind CSS", badge: "Styling" },
+      { name: "Framer Motion", badge: "Animations" }
+    ]
+  },
+  {
+    category: "Backend",
+    tools: [
+      { name: "Node.js", badge: "Runtime" },
+      { name: "Express", badge: "API Server" },
+      { name: "REST API", badge: "Architecture" },
+      { name: "Medusa", badge: "E-Commerce" },
+      { name: "Supabase", badge: "BaaS & Auth" }
+    ]
+  },
+  {
+    category: "Database",
+    tools: [
+      { name: "Neon", badge: "Serverless Postgres" },
+      { name: "PostgreSQL", badge: "Relational DB" },
+      { name: "Redis", badge: "Caching" },
+      { name: "SQLite", badge: "Embedded" }
+    ]
+  },
+  {
+    category: "AI & Automation",
+    tools: [
+      { name: "OpenAI API", badge: "LLM Intelligence" },
+      { name: "n8n", badge: "Workflow Automation" },
+      { name: "Make", badge: "Integration" },
+      { name: "Prompt Engineering", badge: "AI Logic" },
+      { name: "AI Agents", badge: "Autonomous" }
+    ]
+  },
+  {
+    category: "Design",
+    tools: [
+      { name: "Figma", badge: "UI/UX Design" },
+      { name: "Claude Design", badge: "AI Iteration" },
+      { name: "Stitch", badge: "Prototyping" },
+      { name: "Photoshop", badge: "Visual Media" }
+    ]
+  },
+  {
+    category: "DevOps & Infrastructure",
+    tools: [
+      { name: "Git", badge: "Version Control" },
+      { name: "GitHub", badge: "CI/CD" },
+      { name: "Vercel", badge: "Cloud Deployment" },
+      { name: "AWS", badge: "Cloud Infra" },
+      { name: "Postman", badge: "API Testing" }
+    ]
+  }
+];
+
+export const CREATIVE_SHOWCASE: CreativeItem[] = [
+  {
+    id: "ai-commercial",
+    title: "AI Product Commercial",
+    category: "AI Commercials",
+    thumbnail: "/thumbnail/Unisync thumbnail.mp4",
+    isVideo: true,
+    aspect: "video"
+  },
+  {
+    id: "cinematic-promo",
+    title: "Cinematic Product Reveal",
+    category: "Cinematic Videos",
+    thumbnail: "/thumbnail/examinerpro-cs.jpg",
+    aspect: "square"
+  },
+  {
+    id: "football-creative",
+    title: "Neidhal FC Matchday Creative",
+    category: "Football Creative",
+    thumbnail: "/thumbnail/rr-miracle-events.jpg",
+    aspect: "square"
+  },
+  {
+    id: "motion-design",
+    title: "Micro-Interaction & UI Motion",
+    category: "Motion Design",
+    thumbnail: "/thumbnail/pixeldraft.jpg",
+    aspect: "video"
+  },
+  {
+    id: "storyboards",
+    title: "Visual Product Storyboards",
+    category: "Storyboards",
+    thumbnail: "/thumbnail/examinerpro-dev.jpg",
+    aspect: "square"
+  },
+  {
+    id: "scroll-animations",
+    title: "Interactive Web Scroll Flow",
+    category: "Scroll Animations",
+    thumbnail: "/thumbnail/examinerpro-cs.jpg",
+    aspect: "square"
+  }
+];
+
+export const TESTIMONIALS: TestimonialItem[] = [
+  {
+    quote: "Manikandan bridges design and engineering effortlessly. He delivered our platform faster than any traditional development team could.",
+    name: "Jane Doe",
+    position: "CEO",
+    company: "MergeX Startup",
+    initials: "JD"
+  },
+  {
+    quote: "Working with Manikandan was transformative. His AI workflow automations saved our team dozens of hours every single week.",
+    name: "John Smith",
+    position: "CTO",
+    company: "Software Systems",
+    initials: "JS"
+  },
+  {
+    quote: "His design-first approach completely elevated our brand. The conversion rate increase spoke for itself within the first month.",
+    name: "Emily White",
+    position: "Product Manager",
+    company: "E-Commerce Group",
+    initials: "EW"
+  }
+];
+
+export const IMPACT_STATS: ImpactStat[] = [
+  { number: "20+", label: "Projects Delivered", sublabel: "Across Web, AI & Mobile" },
+  { number: "10+", label: "AI Workflows Built", sublabel: "Automating Complex Tasks" },
+  { number: "5+", label: "Production Software Products", sublabel: "Live SaaS & Client Apps" },
+  { number: "3+", label: "Business Platforms", sublabel: "Engineered From Concept to Launch" },
+  { number: "1000+", label: "Development Hours", sublabel: "Dedicated Hands-On Building" },
+  { number: "Multi", label: "Industries Served", sublabel: "SaaS, EduTech, Sports & E-com" }
+];
+
+export const CURRENTLY_BUILDING = {
+  status: "Active Building Phase",
+  headline: "Building AI-powered software through MergeX while collaborating with startups to create scalable digital products.",
+  actionText: "Have a product idea or want to collaborate?"
+};
