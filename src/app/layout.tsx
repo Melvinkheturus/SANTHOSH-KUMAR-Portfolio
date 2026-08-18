@@ -1,46 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import ClientLayoutWrapper from "./ClientLayoutWrapper";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Manikandan S | Web Developer, UI/UX Designer & Creative Technologist",
-  description:
-    "Portfolio of Manikandan S — a Web Developer, UI/UX Designer, and Creative Technologist. Crafting modern, interactive, and accessible digital experiences using Next.js, Tailwind CSS, and Framer Motion.",
-  keywords: [
-    "Manikandan S",
-    "Web Developer",
-    "UI/UX Designer",
-    "Creative Technologist",
-    "Frontend Developer",
-    "Next.js Portfolio",
-    "Tailwind CSS Developer",
-    "Framer Motion Designer",
-    "India Web Developer",
-  ],
-  openGraph: {
-    title: "Manikandan S | Web Developer & Designer",
-    description:
-      "Showcasing projects, skills, and creative work in modern web development and design.",
-    url: "https://yourdomain.com",
-    siteName: "Manikandan S Portfolio",
-    images: [
-      {
-        url: "https://yourdomain.com/preview.png",
-        width: 1200,
-        height: 630,
-        alt: "Manikandan S Portfolio Preview",
-      },
-    ],
-    locale: "en_US",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Manikandan S | Web Developer & Designer",
-    description:
-      "Portfolio of Manikandan S — crafting modern, interactive, and accessible digital experiences.",
-    images: ["https://yourdomain.com/preview.png"],
-  },
+  title: "Santhosh Kumar | Portfolio",
+  description: "Modern Developer & Designer Portfolio",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#09090b",
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -49,19 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#040406" />
-        <meta name="apple-mobile-web-app-title" content="Smkfolio" />
-        <link rel="icon" href="/Favicon/favicon.ico" />
-        <link rel="apple-touch-icon" href="/Favicon/apple-icon.png" />
-        <link rel="icon" type="image/svg+xml" href="/Favicon/icon0.svg" />
-        <link rel="manifest" href="/Favicon/manifest.json" />
-        <link rel="icon" type="image/png" sizes="192x192" href="/Favicon/web-app-manifest-192x192.png" />
-        <link rel="icon" type="image/png" sizes="512x512" href="/Favicon/web-app-manifest-512x512.png" />
-      </head>
-      <ClientLayoutWrapper>{children}</ClientLayoutWrapper>
+    <html lang="en" className="dark">
+      <body className={`${inter.variable} font-sans antialiased bg-zinc-950 text-zinc-100 min-h-screen selection:bg-purple-500 selection:text-white`}>
+        {children}
+      </body>
     </html>
   );
 }
