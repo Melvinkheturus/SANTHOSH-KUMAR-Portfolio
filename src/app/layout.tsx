@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#B91C1C",
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
 };
@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#FAFAFA] text-[#171717] selection:bg-[#B91C1C] selection:text-white min-h-screen`}
+        className={`${inter.variable} font-sans antialiased bg-white text-[#18181b] selection:bg-zinc-900 selection:text-white min-h-screen`}
       >
         {children}
       </body>

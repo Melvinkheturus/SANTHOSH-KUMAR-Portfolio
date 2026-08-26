@@ -52,6 +52,7 @@ export const profileData = {
   phone: "+91 94440 00000",
   location: "Chennai, Tamil Nadu, India",
   portraitUrl: "/images/prof-santhosh-kumar.jpg",
+  portraitDesktopUrl: "/images/prof-santhosh-desktop.png",
 
   positioningStatement:
     "Academic Leader • Industry Professional • Educator • Professional Trainer",

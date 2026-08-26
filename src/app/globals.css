@@ -30,13 +30,26 @@
   border-color: #E5E7EB;
 }
 
-.academic-red {
-  color: #B91C1C;
+.gradient-red-bg {
+  background: linear-gradient(180deg, #DC2626 0%, #7F1D1D 100%);
 }
 
-.academic-red-bg {
-  background-color: #B91C1C;
+.gradient-red-bg:hover {
+  background: linear-gradient(180deg, #EF4444 0%, #6B1111 100%);
 }
+
+.gradient-red-badge {
+  background: linear-gradient(180deg, #FEF2F2 0%, #FEE2E2 100%);
+  color: #991B1B;
+  border-color: #FECACA;
+}
+
+.gradient-red-text {
+  background: linear-gradient(180deg, #DC2626 0%, #7F1D1D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 
 /* Refined custom scrollbar */
 ::-webkit-scrollbar {
