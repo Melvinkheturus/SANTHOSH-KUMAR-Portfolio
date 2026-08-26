@@ -1,20 +1,53 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+});
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-sans",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Santhosh Kumar | Portfolio",
-  description: "Modern Developer & Designer Portfolio",
+  metadataBase: new URL("https://profsanthoshkumar.com"),
+  title: "Prof. Santhosh Kumar | Principal — ASET College of Science & Technology",
+  description: "Senior Academic Leader, Industry Professional, Educator, and Principal of ASET College of Science and Technology. 15+ years of institutional development and academic governance.",
+  keywords: [
+    "Prof. Santhosh Kumar",
+    "Principal ASET College",
+    "Academic Leader",
+    "ASET College of Science and Technology",
+    "Higher Education Leadership",
+    "Safety Engineering Expert",
+    "Grade IOSH UK",
+  ],
+  authors: [{ name: "Prof. Santhosh Kumar" }],
+  openGraph: {
+    title: "Prof. Santhosh Kumar | Principal — ASET College",
+    description: "Academic Leader • Industry Professional • Educator • Professional Trainer",
+    url: "https://profsanthoshkumar.com",
+    siteName: "Prof. Santhosh Kumar Profile",
+    images: [
+      {
+        url: "/images/prof-santhosh-kumar.jpg",
+        width: 1200,
+        height: 1600,
+        alt: "Prof. Santhosh Kumar",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#09090b",
+  themeColor: "#B91C1C",
   width: "device-width",
   initialScale: 1,
 };
@@ -25,8 +58,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} font-sans antialiased bg-zinc-950 text-zinc-100 min-h-screen selection:bg-purple-500 selection:text-white`}>
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-[#FAFAFA] text-[#171717] selection:bg-[#B91C1C] selection:text-white min-h-screen`}
+      >
         {children}
       </body>
     </html>
