@@ -13,13 +13,13 @@ export default function LeadershipPhilosophySection() {
       number: "02",
       title: "Discipline is the foundation of excellence.",
       description:
-        "Institutions run well when standards are clear and consistently upheld — for faculty and students alike. I believe structure creates the space where genuine learning and growth happen.",
+        "Institutions run well when standards are clear and consistently upheld - for faculty and students alike. I believe structure creates the space where genuine learning and growth happen.",
     },
     {
       number: "03",
       title: "Global exposure builds better leaders.",
       description:
-        "Some of the most valuable lessons happen outside the classroom — through international collaboration, cross-cultural learning, and exposure to how the world works beyond one campus or one country.",
+        "Some of the most valuable lessons happen outside the classroom - through international collaboration, cross-cultural learning, and exposure to how the world works beyond one campus or one country.",
     },
   ];
 
@@ -31,7 +31,7 @@ export default function LeadershipPhilosophySection() {
           02 / Leadership Philosophy
         </span>
         <h2 className="text-[28px] sm:text-[34px] md:text-[38px] font-light leading-[1.16] tracking-tight text-zinc-900 mt-1">
-          How I Lead —
+          How I Lead -
           <br />
           <span className="font-normal text-zinc-900">And What I Believe In.</span>
         </h2>
@@ -83,7 +83,7 @@ export default function LeadershipPhilosophySection() {
               &ldquo;Know that every decision made here, from curriculum to campus life, is made with your future in mind. My door is open, and your success is personal to me, not just professional.&rdquo;
             </p>
             <div className="pt-2 text-xs font-semibold text-zinc-900">
-              — Prof. Santhosh Kumar, <span className="font-normal text-zinc-500">Principal</span>
+              - Prof. Santhosh Kumar, <span className="font-normal text-zinc-500">Principal</span>
             </div>
           </div>
         </div>

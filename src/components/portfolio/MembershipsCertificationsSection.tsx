@@ -11,21 +11,21 @@ export default function MembershipsCertificationsSection() {
       highlight: true,
     },
     {
-      title: "Approved International Trainer — IOSH",
+      title: "Approved International Trainer - IOSH",
       org: "Institution of Occupational Safety and Health",
       badge: "IOSH UK Approved",
       description: "Authorized to deliver certified international IOSH safety curriculums and corporate compliance programs.",
       highlight: false,
     },
     {
-      title: "Approved International Trainer — HABC",
+      title: "Approved International Trainer - HABC",
       org: "Highfield Awarding Body for Compliance (UK)",
       badge: "HABC UK Approved",
       description: "Accredited trainer for global compliance, industrial hygiene, and auditing qualifications.",
       highlight: false,
     },
     {
-      title: "Approved International Trainer — AOSH",
+      title: "Approved International Trainer - AOSH",
       org: "American Society of Occupational Safety (USA)",
       badge: "AOSH USA Approved",
       description: "Certified to deliver specialized American standard occupational health and safety curriculums.",
@@ -81,7 +81,7 @@ export default function MembershipsCertificationsSection() {
       </div>
 
       <p className="text-[13.5px] sm:text-[14.5px] leading-relaxed text-zinc-700 max-w-2xl mb-8">
-        These affiliations reflect a career built on staying connected to the industries his students will one day enter — not just teaching safety and compliance, but practicing it at an internationally certified standard.
+        These affiliations reflect a career built on staying connected to the industries his students will one day enter - not just teaching safety and compliance, but practicing it at an internationally certified standard.
       </p>
 
       {/* Two Column Layout */}
@@ -96,20 +96,18 @@ export default function MembershipsCertificationsSection() {
           {trainerCredentials.map((cred, idx) => (
             <div
               key={idx}
-              className={`rounded-[22px] p-5 border shadow-xs transition-colors flex flex-col justify-between ${
-                cred.highlight
+              className={`rounded-[22px] p-5 border shadow-xs transition-colors flex flex-col justify-between ${cred.highlight
                   ? "bg-zinc-900 text-white border-t-2 border-[#DC2626]"
                   : "bg-white/90 border-black/5 hover:border-red-200 text-zinc-900"
-              }`}
+                }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-2">
                   <span
-                    className={`text-[10.5px] font-mono font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
-                      cred.highlight
+                    className={`text-[10.5px] font-mono font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${cred.highlight
                         ? "text-red-400 border-red-900/50 bg-red-950/40"
                         : "gradient-red-badge"
-                    }`}
+                      }`}
                   >
                     {cred.badge}
                   </span>
@@ -123,16 +121,14 @@ export default function MembershipsCertificationsSection() {
                   {cred.title}
                 </h3>
                 <div
-                  className={`text-xs mt-0.5 mb-2 ${
-                    cred.highlight ? "text-zinc-400" : "text-zinc-500"
-                  }`}
+                  className={`text-xs mt-0.5 mb-2 ${cred.highlight ? "text-zinc-400" : "text-zinc-500"
+                    }`}
                 >
                   {cred.org}
                 </div>
                 <p
-                  className={`text-xs leading-relaxed ${
-                    cred.highlight ? "text-zinc-300" : "text-zinc-600"
-                  }`}
+                  className={`text-xs leading-relaxed ${cred.highlight ? "text-zinc-300" : "text-zinc-600"
+                    }`}
                 >
                   {cred.description}
                 </p>

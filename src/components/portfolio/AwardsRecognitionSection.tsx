@@ -5,15 +5,15 @@ export default function AwardsRecognitionSection() {
   const awards = [
     {
       year: "Academic Rank",
-      title: "University First Rank Holder — HSE Department",
+      title: "University First Rank Holder - HSE Department",
       institution: "Alagappa University, Karaikudi",
       description:
-        "Secured First Rank in the Health, Safety & Environment (HSE) Department at Alagappa University, Karaikudi — a distinction reflecting academic excellence from the very start of his career.",
+        "Secured First Rank in the Health, Safety & Environment (HSE) Department at Alagappa University, Karaikudi - a distinction reflecting academic excellence from the very start of his career.",
       icon: Trophy,
     },
     {
       year: "2025 Honor",
-      title: "Best Faculty Award — 2025",
+      title: "Best Faculty Award - 2025",
       institution: "Amity Business School, Amity University",
       description:
         "Honored by Amity Business School, Amity University, on Teachers' Day 2025, in recognition of exemplary academic leadership and commitment to student development.",
@@ -21,7 +21,7 @@ export default function AwardsRecognitionSection() {
     },
     {
       year: "Global Honor",
-      title: "Best Educator Award — International Recognition",
+      title: "Best Educator Award - International Recognition",
       institution: "Dwijendra University, Bali, Indonesia",
       description:
         "Conferred by Dwijendra University, Bali, Indonesia, acknowledging his contribution to global education and academic leadership on an international stage.",

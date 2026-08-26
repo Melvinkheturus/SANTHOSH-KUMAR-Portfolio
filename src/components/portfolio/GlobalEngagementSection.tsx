@@ -26,7 +26,7 @@ export default function GlobalEngagementSection() {
           06 / Global Engagement
         </span>
         <h2 className="text-[28px] sm:text-[34px] md:text-[38px] font-light leading-[1.16] tracking-tight text-zinc-900 mt-1">
-          Learning Without Borders —
+          Learning Without Borders -
           <br />
           <span className="font-normal text-zinc-900">Bringing the World into the Classroom.</span>
         </h2>
@@ -109,7 +109,7 @@ export default function GlobalEngagementSection() {
       {/* Concluding Impact Callout */}
       <div className="bg-white rounded-[22px] p-5 sm:p-6 border border-black/5 shadow-xs">
         <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed italic">
-          &ldquo;These engagements have done more than build a travel record — they&apos;ve directly shaped his approach to academic leadership, logistics education, and health & safety training, bringing global best practices back to every student he mentors.&rdquo;
+          &ldquo;These engagements have done more than build a travel record - they&apos;ve directly shaped his approach to academic leadership, logistics education, and health & safety training, bringing global best practices back to every student he mentors.&rdquo;
         </p>
       </div>
     </section>

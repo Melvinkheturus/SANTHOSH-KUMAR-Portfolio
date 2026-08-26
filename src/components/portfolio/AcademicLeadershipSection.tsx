@@ -5,7 +5,7 @@ export default function AcademicLeadershipSection() {
   const leadershipHighlights = [
     {
       role: "Subject Expert, Board of Studies",
-      scope: "MBA & B.Sc. Safety Programs — Bharathidasan University",
+      scope: "MBA & B.Sc. Safety Programs - Bharathidasan University",
       description:
         "Shaping curriculum design, course outcome frameworks, and academic standards at the university level.",
       badge: "Curriculum Architect",
@@ -61,7 +61,7 @@ export default function AcademicLeadershipSection() {
           04 / Academic & Administrative Leadership
         </span>
         <h2 className="text-[28px] sm:text-[34px] md:text-[38px] font-light leading-[1.16] tracking-tight text-zinc-900 mt-1">
-          Leading From the Front —
+          Leading From the Front -
           <br />
           <span className="font-normal text-zinc-900">In the Classroom, the Boardroom, and Beyond.</span>
         </h2>
@@ -70,7 +70,7 @@ export default function AcademicLeadershipSection() {
       {/* Leadership Narrative */}
       <div className="space-y-3.5 text-[13.5px] sm:text-[14.5px] text-zinc-700 leading-relaxed max-w-2xl mb-8">
         <p>
-          As <strong className="font-semibold text-zinc-900">Principal of Aset College of Science and Technology</strong>, Prof. Santhosh Kumar oversees the academic and administrative direction of the institution, ensuring it operates to the standards expected under Alagappa University&apos;s approval — while pushing for the innovation that keeps students competitive beyond it.
+          As <strong className="font-semibold text-zinc-900">Principal of Aset College of Science and Technology</strong>, Prof. Santhosh Kumar oversees the academic and administrative direction of the institution, ensuring it operates to the standards expected under Alagappa University&apos;s approval - while pushing for the innovation that keeps students competitive beyond it.
         </p>
         <p className="text-xs sm:text-sm font-semibold text-zinc-900 uppercase tracking-wide pt-1">
           His leadership extends well past campus walls:

@@ -16,7 +16,7 @@ export default function ContactConnectSection({ onOpenContact }: ContactConnectS
       icon: GraduationCap,
       emoji: "🎓",
       description:
-        "Have questions about admissions, programs, or campus life? Reach out directly — every query gets a genuine response.",
+        "Have questions about admissions, programs, or campus life? Reach out directly - every query gets a genuine response.",
       actionText: "Admissions & Student Query",
       subject: "Admissions & Student Inquiry - Prof. Santhosh Kumar",
     },
@@ -59,7 +59,7 @@ export default function ContactConnectSection({ onOpenContact }: ContactConnectS
         </div>
 
         <p className="text-[13.5px] sm:text-[14.5px] leading-relaxed text-zinc-700 max-w-2xl mb-8">
-          Whether you&apos;re a student exploring your future, a parent seeking clarity, or an institution looking to collaborate — Prof. Santhosh Kumar welcomes the conversation.
+          Whether you&apos;re a student exploring your future, a parent seeking clarity, or an institution looking to collaborate - Prof. Santhosh Kumar welcomes the conversation.
         </p>
 
         {/* 3 Audience Cards */}
@@ -163,7 +163,7 @@ export default function ContactConnectSection({ onOpenContact }: ContactConnectS
                 {profileData.formalTitle}
               </h3>
               <div className="text-xs text-zinc-400 mt-0.5">
-                {profileData.designation} — {profileData.institutionFull}
+                {profileData.designation} - {profileData.institutionFull}
               </div>
               <div className="text-[11px] text-zinc-500 mt-1">
                 {profileData.location}

@@ -47,7 +47,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
             Get in Touch
           </h3>
           <p className="text-xs text-zinc-500 mt-0.5">
-            {profileData.formalTitle} — {profileData.designation}
+            {profileData.formalTitle} - {profileData.designation}
           </p>
         </div>
 

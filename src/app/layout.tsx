@@ -16,7 +16,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://profsanthoshkumar.com"),
-  title: "Prof. Santhosh Kumar | Principal — ASET College of Science & Technology",
+  title: "Prof. Santhosh Kumar | Principal - ASET College of Science & Technology",
   description: "Senior Academic Leader, Industry Professional, Educator, and Principal of ASET College of Science and Technology. 15+ years of institutional development and academic governance.",
   keywords: [
     "Prof. Santhosh Kumar",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Prof. Santhosh Kumar" }],
   openGraph: {
-    title: "Prof. Santhosh Kumar | Principal — ASET College",
+    title: "Prof. Santhosh Kumar | Principal - ASET College",
     description: "Academic Leader • Industry Professional • Educator • Professional Trainer",
     url: "https://profsanthoshkumar.com",
     siteName: "Prof. Santhosh Kumar Profile",

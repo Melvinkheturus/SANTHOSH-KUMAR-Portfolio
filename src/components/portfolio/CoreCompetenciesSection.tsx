@@ -10,7 +10,7 @@ export default function CoreCompetenciesSection() {
       icon: Building2,
       emoji: "🏛",
       description:
-        "Building academic structures and policies that scale — from curriculum design to compliance frameworks that stand up to university and regulatory scrutiny.",
+        "Building academic structures and policies that scale - from curriculum design to compliance frameworks that stand up to university and regulatory scrutiny.",
     },
     {
       id: "02",
@@ -28,7 +28,7 @@ export default function CoreCompetenciesSection() {
       icon: Handshake,
       emoji: "🤝",
       description:
-        "Translating real industry requirements into classroom learning — ensuring graduates aren't just qualified on paper, but genuinely employable.",
+        "Translating real industry requirements into classroom learning - ensuring graduates aren't just qualified on paper, but genuinely employable.",
     },
     {
       id: "04",
@@ -37,7 +37,7 @@ export default function CoreCompetenciesSection() {
       icon: ShieldAlert,
       emoji: "🦺",
       description:
-        "Internationally certified expertise (IOSH, HABC, AOSH) in workplace safety — brought directly into academic training and industry consulting.",
+        "Internationally certified expertise (IOSH, HABC, AOSH) in workplace safety - brought directly into academic training and industry consulting.",
     },
     {
       id: "05",
@@ -55,7 +55,7 @@ export default function CoreCompetenciesSection() {
       icon: GraduationCap,
       emoji: "🎓",
       description:
-        "Hands-on guidance for thousands of students — helping them move from classroom theory to career-ready confidence.",
+        "Hands-on guidance for thousands of students - helping them move from classroom theory to career-ready confidence.",
     },
   ];
 

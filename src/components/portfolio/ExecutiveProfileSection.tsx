@@ -22,13 +22,13 @@ export default function ExecutiveProfileSection() {
       {/* Narrative Paragraphs */}
       <div className="space-y-4 text-[13.5px] sm:text-[14.5px] text-zinc-700 leading-relaxed max-w-2xl mb-8">
         <p>
-          Prof. Santhosh Kumar brings over 15 years of combined academic and industry experience to his role as Principal of Aset College of Science and Technology, Chennai — an institution functioning under the approval of Alagappa University.
+          Prof. Santhosh Kumar brings over 15 years of combined academic and industry experience to his role as Principal of Aset College of Science and Technology, Chennai - an institution functioning under the approval of Alagappa University.
         </p>
         <p>
-          His career spans two worlds by design: a decade shaping curricula and leading institutions from within academia, and five years understanding what industry actually demands from the graduates who walk through its doors. That dual perspective defines his leadership — every academic decision is filtered through one question: <em className="text-zinc-900 font-medium not-italic">&ldquo;will this make our students genuinely ready for the world they&apos;re entering?&rdquo;</em>
+          His career spans two worlds by design: a decade shaping curricula and leading institutions from within academia, and five years understanding what industry actually demands from the graduates who walk through its doors. That dual perspective defines his leadership - every academic decision is filtered through one question: <em className="text-zinc-900 font-medium not-italic">&ldquo;will this make our students genuinely ready for the world they&apos;re entering?&rdquo;</em>
         </p>
         <p>
-          Under his leadership, Aset College has strengthened its focus on producing graduates who carry not just degrees, but professional competence, discipline, and international exposure — qualities built through structured mentorship, industry collaboration, and a personal commitment to every student&apos;s growth.
+          Under his leadership, Aset College has strengthened its focus on producing graduates who carry not just degrees, but professional competence, discipline, and international exposure - qualities built through structured mentorship, industry collaboration, and a personal commitment to every student&apos;s growth.
         </p>
       </div>
 

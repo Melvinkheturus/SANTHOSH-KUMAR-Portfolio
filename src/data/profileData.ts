@@ -119,7 +119,7 @@ export const profileData = {
       },
       {
         role: "Subject Expert",
-        organization: "Board of Studies — MBA & B.Sc. Safety Programs",
+        organization: "Board of Studies - MBA & B.Sc. Safety Programs",
         description:
           "Curriculum architect shaping contemporary syllabi aligned with industrial safety, logistics, and management sciences.",
       },
@@ -220,7 +220,7 @@ export const profileData = {
       },
     ],
     certifications: {
-      headline: "Grade IOSH — UK",
+      headline: "Grade IOSH - UK",
       subline: "Institution of Occupational Safety and Health (UK)",
       approvedTrainerTitle: "Approved International Trainer",
       approvedBodies: [
@@ -255,7 +255,7 @@ export const profileData = {
     {
       year: "First Rank",
       title: "University First Rank & Gold Medal",
-      institution: "HSE Department — Alagappa University",
+      institution: "HSE Department - Alagappa University",
       category: "Academic Distinction",
       description:
         "Secured the prestigious University First Rank for exceptional academic performance in postgraduate HSE studies.",

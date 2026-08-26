@@ -69,7 +69,7 @@ export default function HeroSection({ onOpenContact, onOpenMenu }: HeroSectionPr
               {profileData.formalTitle}
             </h2>
             <p className="text-[12.5px] sm:text-[13px] text-zinc-500 leading-tight mt-0.5">
-              {profileData.designation} — {profileData.institution}
+              {profileData.designation} - {profileData.institution}
             </p>
           </div>
         </div>
@@ -83,7 +83,7 @@ export default function HeroSection({ onOpenContact, onOpenMenu }: HeroSectionPr
 
         {/* Sub-line */}
         <p className="text-[13.5px] sm:text-[14.5px] font-medium leading-relaxed gradient-red-text max-w-xl">
-          15+ years bridging classrooms and industry — 10 in academia, 5 in the corporate sector.
+          15+ years bridging classrooms and industry - 10 in academia, 5 in the corporate sector.
         </p>
 
         {/* Core Pillar Tags */}
