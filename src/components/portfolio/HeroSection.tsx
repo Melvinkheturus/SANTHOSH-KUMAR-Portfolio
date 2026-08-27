@@ -30,15 +30,15 @@ export default function HeroSection({ onOpenContact, onOpenMenu }: HeroSectionPr
       </FadeIn>
 
       {/* 2. Full-Width Portrait Photo Card with Top-Left Big Name & DiaText Animation (No BG Card) */}
-      <FadeIn delay={0.1} duration={0.65} yOffset={16} className="relative w-full aspect-[4/3] sm:aspect-[16/11] md:aspect-[16/10] rounded-[16px] sm:rounded-[20px] overflow-hidden bg-white select-none shadow-xs border border-black/5">
-        {/* Mobile Portrait */}
+      <FadeIn delay={0.1} duration={0.65} yOffset={16} className="relative w-full aspect-[4/5] sm:aspect-[16/11] md:aspect-[16/10] rounded-[16px] sm:rounded-[20px] overflow-hidden bg-[#f8f7f5] select-none shadow-xs border border-black/5">
+        {/* Mobile Portrait (Full Portrait View) */}
         <div className="block sm:hidden relative w-full h-full">
           <Image
             src={profileData.portraitUrl}
             alt={profileData.name}
             fill
             priority
-            className="object-cover object-top hover:scale-[1.015] transition-transform duration-700 ease-out"
+            className="object-cover object-center hover:scale-[1.015] transition-transform duration-700 ease-out"
             sizes="(max-width: 640px) 100vw, 640px"
           />
         </div>
