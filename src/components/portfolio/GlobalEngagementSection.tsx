@@ -1,117 +1,125 @@
+"use client";
+
 import React from "react";
-import { Globe, MapPin, Compass, Building } from "lucide-react";
+import { FadeInText, FadeIn } from "@/components/ui/Motion";
+import { KineticTextReveal } from "@/components/ui/kinetic-text-reveal";
+import { WheelCarousel, type WheelCarouselItem } from "@/components/ui/wheel-carousel";
 
 export default function GlobalEngagementSection() {
-  const seAsiaDestinations = [
-    { city: "Singapore", country: "Singapore", flag: "🇸🇬", role: "Academic Visits & Institutional Exchange" },
-    { city: "Kuala Lumpur", country: "Malaysia", flag: "🇲🇾", role: "International Conference & Safety Forums" },
-    { city: "Bali", country: "Indonesia", flag: "🇮🇩", role: "Dwijendra University Best Educator Honor" },
-  ];
-
-  const uaeEmirates = [
-    { city: "Dubai", flag: "🇦🇪", role: "Logistics & Corporate HSE Hub" },
-    { city: "Abu Dhabi", flag: "🇦🇪", role: "Industrial Governance & Safety Standards" },
-    { city: "Sharjah", flag: "🇦🇪", role: "Higher Education & Academic Exchange" },
-    { city: "Ajman", flag: "🇦🇪", role: "Vocational & Skills Alignment" },
-    { city: "Ras Al Khaimah", flag: "🇦🇪", role: "Industrial Safety Auditing" },
-    { city: "Fujairah", flag: "🇦🇪", role: "Maritime & Logistics Operations" },
-    { city: "Umm Al Quwain", flag: "🇦🇪", role: "Corporate Pedagogy Seminars" },
+  const globalDestinations: WheelCarouselItem[] = [
+    {
+      label: "Singapore",
+      subtitle: "Academic Visits & Institutional Exchange",
+      image: "https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=1200&q=80&auto=format&fit=crop",
+      imageAlt: "Singapore Academic Visits",
+    },
+    {
+      label: "Malaysia",
+      subtitle: "International Conferences & Safety Forums",
+      image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1200&q=80&auto=format&fit=crop",
+      imageAlt: "Malaysia International Conferences",
+    },
+    {
+      label: "Bali",
+      subtitle: "Dwijendra University Best Educator Honor",
+      image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1200&q=80&auto=format&fit=crop",
+      imageAlt: "Bali Global Education Honor",
+    },
+    {
+      label: "Abu Dhabi",
+      subtitle: "Industrial Governance & Safety Standards",
+      image: "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=1200&q=80&auto=format&fit=crop",
+      imageAlt: "Abu Dhabi Institutional Safety",
+    },
+    {
+      label: "Dubai",
+      subtitle: "Logistics & Corporate HSE Hub",
+      image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1200&q=80&auto=format&fit=crop",
+      imageAlt: "Dubai Logistics Hub",
+    },
+    {
+      label: "Sharjah",
+      subtitle: "Higher Education & Academic Exchange",
+      image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200&q=80&auto=format&fit=crop",
+      imageAlt: "Sharjah Higher Education",
+    },
+    {
+      label: "Ajman",
+      subtitle: "Vocational & Skills Alignment",
+      image: "https://images.unsplash.com/photo-1578895210405-907db486c111?w=1200&q=80&auto=format&fit=crop",
+      imageAlt: "Ajman Skills Alignment",
+    },
+    {
+      label: "Umm Al Quwain",
+      subtitle: "Corporate Pedagogy Seminars",
+      image: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?w=1200&q=80&auto=format&fit=crop",
+      imageAlt: "Umm Al Quwain Pedagogy Seminars",
+    },
+    {
+      label: "Ras Al Khaimah",
+      subtitle: "Industrial Safety Auditing & Protocols",
+      image: "https://images.unsplash.com/photo-1546412414-e1885259563a?w=1200&q=80&auto=format&fit=crop",
+      imageAlt: "Ras Al Khaimah Safety Auditing",
+    },
+    {
+      label: "Fujairah",
+      subtitle: "Maritime & Logistics Operations",
+      image: "https://images.unsplash.com/photo-1578895210405-907db486c111?w=1200&q=80&auto=format&fit=crop",
+      imageAlt: "Fujairah Maritime Operations",
+    },
   ];
 
   return (
-    <section id="global-engagement" className="relative bg-[#f3f2ee] rounded-[28px] sm:rounded-[34px] p-6 sm:p-8 transition-all duration-300">
+    <section id="global-engagement" className="relative bg-[#f3f2ee] rounded-[16px] sm:rounded-[20px] p-6 sm:p-8 md:p-10 transition-all duration-300">
       {/* Top Header */}
-      <div className="mb-4">
-        <span className="text-[11px] font-mono uppercase tracking-widest gradient-red-text font-semibold">
-          06 / Global Engagement
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] md:text-[38px] font-light leading-[1.16] tracking-tight text-zinc-900 mt-1">
-          Learning Without Borders -
-          <br />
-          <span className="font-normal text-zinc-900">Bringing the World into the Classroom.</span>
+      <div className="mb-4 text-center">
+        <h2 className="text-[22px] sm:text-[28px] md:text-[32px] lg:text-[34px] font-normal leading-tight tracking-tight max-w-4xl mx-auto">
+          <KineticTextReveal
+            text="Global Academic Footprint & International Collaborations"
+            splitBy="words"
+            direction="up"
+            distance={18}
+            stagger={0.06}
+            segmentClassName="gradient-red-text"
+          />
         </h2>
       </div>
 
-      <p className="text-[13.5px] sm:text-[14.5px] leading-relaxed text-zinc-700 max-w-2xl mb-8">
-        Prof. Santhosh Kumar&apos;s commitment to academic excellence extends far beyond a single campus or country. Through academic visits, faculty exchange programs, and international conferences, he has built collaborations and gathered insights across:
-      </p>
-
-      {/* Regions Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mb-6">
-        {/* Southeast Asia */}
-        <div className="bg-white/90 rounded-[22px] p-5 sm:p-6 border border-black/5 shadow-xs flex flex-col justify-between hover:border-red-200 transition-colors">
-          <div>
-            <div className="flex items-center justify-between mb-3.5 pb-2.5 border-b border-zinc-100">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full gradient-red-bg shrink-0" />
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900">
-                  Southeast Asia
-                </h3>
-              </div>
-              <span className="text-[11px] font-mono text-zinc-400">3 Major Hubs</span>
-            </div>
-
-            <div className="space-y-2.5">
-              {seAsiaDestinations.map((d, i) => (
-                <div
-                  key={i}
-                  className="p-3 bg-zinc-50 rounded-xl flex items-center justify-between text-xs hover:bg-red-50/40 transition-colors"
-                >
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-base">{d.flag}</span>
-                    <div>
-                      <div className="font-semibold text-zinc-900">{d.city}</div>
-                      <div className="text-[11px] text-zinc-500">{d.country}</div>
-                    </div>
-                  </div>
-                  <span className="text-[11px] text-zinc-600 font-medium text-right max-w-[130px] leading-tight">
-                    {d.role}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* UAE Emirates */}
-        <div className="bg-white/90 rounded-[22px] p-5 sm:p-6 border border-black/5 shadow-xs flex flex-col justify-between hover:border-red-200 transition-colors">
-          <div>
-            <div className="flex items-center justify-between mb-3.5 pb-2.5 border-b border-zinc-100">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full gradient-red-bg shrink-0" />
-                <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-zinc-900">
-                  Middle East (All 7 Emirates)
-                </h3>
-              </div>
-              <span className="text-[11px] font-mono text-zinc-400">UAE Footprint</span>
-            </div>
-
-            <div className="grid grid-cols-1 gap-1.5">
-              {uaeEmirates.map((d, i) => (
-                <div
-                  key={i}
-                  className="px-3 py-1.5 bg-zinc-50 rounded-lg flex items-center justify-between text-xs hover:bg-red-50/40 transition-colors"
-                >
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm">{d.flag}</span>
-                    <span className="font-medium text-zinc-900">{d.city}</span>
-                  </div>
-                  <span className="text-[10.5px] text-zinc-500 font-mono">
-                    {d.role.split("&")[0]}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Concluding Impact Callout */}
-      <div className="bg-white rounded-[22px] p-5 sm:p-6 border border-black/5 shadow-xs">
-        <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed italic">
-          &ldquo;These engagements have done more than build a travel record - they&apos;ve directly shaped his approach to academic leadership, logistics education, and health & safety training, bringing global best practices back to every student he mentors.&rdquo;
+      {/* Intro Text strictly from PROF.md */}
+      <FadeInText delay={0.1} className="text-[13.5px] sm:text-[14.5px] leading-relaxed text-zinc-700 w-full mb-6 text-center tracking-[0.015em] font-medium">
+        <p>
+          Participated in academic visits, faculty exchange programs, and international conferences across:
         </p>
-      </div>
+      </FadeInText>
+
+      {/* Interactive Cinematic Wheel Carousel with 10 Destinations from PROF.md */}
+      <FadeIn delay={0.15} className="w-full bg-white rounded-[14px] sm:rounded-[16px] p-4 sm:p-6 border border-black/5 shadow-xs mb-6">
+        <div className="h-[380px] sm:h-[420px] w-full">
+          <WheelCarousel
+            items={globalDestinations}
+            photoSide="left"
+            photoAspect="4/3"
+            photoWidth={38}
+            contentWidth={900}
+            gap={20}
+            radius={280}
+            spacing={15}
+            visibleItems={5}
+            photoRadius={12}
+            markerColor="#DC2626"
+            selectedColor="#991B1B"
+            textColor="rgba(113, 113, 122, 0.45)"
+            edgeFade
+          />
+        </div>
+      </FadeIn>
+
+      {/* Concluding Callout strictly from PROF.md */}
+      <FadeIn delay={0.2} className="bg-white rounded-[12px] sm:rounded-[14px] p-5 sm:p-6 border border-black/5 shadow-xs text-center">
+        <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed font-medium tracking-[0.015em]">
+          These engagements strengthened international collaborations in academic leadership, logistics education, and health & safety training initiatives.
+        </p>
+      </FadeIn>
     </section>
   );
 }

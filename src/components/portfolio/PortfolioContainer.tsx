@@ -13,6 +13,7 @@ import ImpactNumbersSection from "./ImpactNumbersSection";
 import ContactConnectSection from "./ContactConnectSection";
 import MenuDrawer from "./MenuDrawer";
 import ContactModal from "./ContactModal";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 
 export default function PortfolioContainer() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,8 +27,11 @@ export default function PortfolioContainer() {
 
   return (
     <div className="min-h-screen w-full bg-white font-sans antialiased text-zinc-900 selection:bg-zinc-900 selection:text-white">
+      {/* Ruler-style Scroll Progress indicator with red accent */}
+      <ScrollProgress position="right" />
+
       {/* Centered Editorial Stack */}
-      <div className="w-full max-w-[620px] sm:max-w-[700px] md:max-w-[780px] lg:max-w-[840px] mx-auto px-3.5 sm:px-5 md:px-6 py-4 sm:py-7 md:py-10 space-y-3.5 sm:space-y-4 md:space-y-5">
+      <div className="w-full max-w-[680px] sm:max-w-[840px] md:max-w-[960px] lg:max-w-[1060px] mx-auto px-4 sm:px-6 md:px-8 py-5 sm:py-8 md:py-12 space-y-4 sm:space-y-5 md:space-y-6">
         {/* Section 1: Hero Section (Navbar + Positioning + Full-width Cutout Portrait) */}
         <HeroSection onOpenContact={openContact} onOpenMenu={openMenu} />
 

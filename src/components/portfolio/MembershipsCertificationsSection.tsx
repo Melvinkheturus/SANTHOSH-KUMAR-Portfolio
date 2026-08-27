@@ -1,5 +1,9 @@
+"use client";
+
 import React from "react";
-import { ShieldCheck, Award, Building2, CheckCircle2, BadgeCheck } from "lucide-react";
+import { ShieldCheck, Award, Building2, BadgeCheck } from "lucide-react";
+import { FadeInText, FadeIn, StaggerContainer, StaggerItem } from "@/components/ui/Motion";
+import { KineticTextReveal } from "@/components/ui/kinetic-text-reveal";
 
 export default function MembershipsCertificationsSection() {
   const trainerCredentials = [
@@ -55,9 +59,9 @@ export default function MembershipsCertificationsSection() {
       description: "Renewable energy infrastructure safety and technical workforce training.",
     },
     {
-      acronym: "SEA",
-      name: "Safety Engineers Association",
-      description: "Professional network of practicing safety directors, auditors, and educators.",
+      acronym: "ISTD",
+      name: "Indian Society for Training & Development",
+      description: "Professional member advancing human resource development and training pedagogy.",
     },
     {
       acronym: "LSSC",
@@ -67,109 +71,119 @@ export default function MembershipsCertificationsSection() {
   ];
 
   return (
-    <section id="memberships-certifications" className="relative bg-[#f3f2ee] rounded-[28px] sm:rounded-[34px] p-6 sm:p-8 transition-all duration-300">
+    <section id="memberships-certifications" className="relative bg-[#f3f2ee] rounded-[16px] sm:rounded-[20px] p-6 sm:p-8 md:p-10 transition-all duration-300">
       {/* Top Header */}
-      <div className="mb-4">
-        <span className="text-[11px] font-mono uppercase tracking-widest gradient-red-text font-semibold">
-          07 / Professional Memberships & Certifications
-        </span>
-        <h2 className="text-[28px] sm:text-[34px] md:text-[38px] font-light leading-[1.16] tracking-tight text-zinc-900 mt-1">
-          Credentials That Carry Weight
-          <br />
-          <span className="font-normal text-zinc-900">Across Industries.</span>
+      <div className="mb-4 text-center">
+        <h2 className="text-[22px] sm:text-[28px] md:text-[32px] lg:text-[34px] font-normal leading-tight tracking-tight max-w-4xl mx-auto">
+          <KineticTextReveal
+            text="Professional Memberships & Certified Credentials"
+            splitBy="words"
+            direction="up"
+            distance={18}
+            stagger={0.06}
+            segmentClassName="gradient-red-text"
+          />
         </h2>
       </div>
 
-      <p className="text-[13.5px] sm:text-[14.5px] leading-relaxed text-zinc-700 max-w-2xl mb-8">
-        These affiliations reflect a career built on staying connected to the industries his students will one day enter - not just teaching safety and compliance, but practicing it at an internationally certified standard.
-      </p>
+      <FadeInText delay={0.1} className="text-[13.5px] sm:text-[14.5px] leading-relaxed text-zinc-700 w-full mb-8 text-justify tracking-[0.015em]">
+        <p>
+          These affiliations reflect a career built on staying connected to the industries his students will one day enter - not just teaching safety and compliance, but practicing it at an internationally certified standard.
+        </p>
+      </FadeInText>
 
       {/* Two Column Layout */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-6 mb-6">
         {/* Column 1: Certified Trainer Credentials */}
         <div className="space-y-3.5">
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-zinc-700 pb-1">
+          <FadeIn delay={0.1} className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-zinc-700 pb-1">
             <ShieldCheck className="w-4 h-4 text-[#991B1B]" />
             <span>Certified Trainer Credentials</span>
-          </div>
+          </FadeIn>
 
-          {trainerCredentials.map((cred, idx) => (
-            <div
-              key={idx}
-              className={`rounded-[22px] p-5 border shadow-xs transition-colors flex flex-col justify-between ${cred.highlight
-                  ? "bg-zinc-900 text-white border-t-2 border-[#DC2626]"
-                  : "bg-white/90 border-black/5 hover:border-red-200 text-zinc-900"
-                }`}
-            >
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <span
-                    className={`text-[10.5px] font-mono font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${cred.highlight
-                        ? "text-red-400 border-red-900/50 bg-red-950/40"
-                        : "gradient-red-badge"
-                      }`}
-                  >
-                    {cred.badge}
-                  </span>
-                  {cred.highlight ? (
-                    <Award className="w-5 h-5 text-red-400 shrink-0" />
-                  ) : (
-                    <BadgeCheck className="w-4 h-4 text-[#991B1B] shrink-0" />
-                  )}
-                </div>
-                <h3 className="text-[15px] font-semibold leading-snug">
-                  {cred.title}
-                </h3>
+          <StaggerContainer className="space-y-3.5">
+            {trainerCredentials.map((cred, idx) => (
+              <StaggerItem key={idx}>
                 <div
-                  className={`text-xs mt-0.5 mb-2 ${cred.highlight ? "text-zinc-400" : "text-zinc-500"
-                    }`}
+                  className={`rounded-[12px] sm:rounded-[14px] p-5 border shadow-xs transition-colors flex flex-col justify-between ${
+                    cred.highlight
+                      ? "bg-zinc-900 text-white border-t-2 border-[#DC2626]"
+                      : "bg-white/90 border-black/5 hover:border-red-200 text-zinc-900"
+                  }`}
                 >
-                  {cred.org}
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span
+                        className={`text-[10.5px] font-mono font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
+                          cred.highlight
+                            ? "text-red-400 border-red-900/50 bg-red-950/40"
+                            : "gradient-red-badge"
+                        }`}
+                      >
+                        {cred.badge}
+                      </span>
+                      {cred.highlight ? (
+                        <Award className="w-5 h-5 text-red-400 shrink-0" />
+                      ) : (
+                        <BadgeCheck className="w-4 h-4 text-[#991B1B] shrink-0" />
+                      )}
+                    </div>
+                    <h3 className="text-[15px] font-semibold leading-snug">
+                      {cred.title}
+                    </h3>
+                    <div
+                      className={`text-xs mt-0.5 mb-2 ${
+                        cred.highlight ? "text-zinc-400" : "text-zinc-500"
+                      }`}
+                    >
+                      {cred.org}
+                    </div>
+                    <p
+                      className={`text-xs leading-relaxed text-justify tracking-wide ${
+                        cred.highlight ? "text-zinc-300" : "text-zinc-600"
+                      }`}
+                    >
+                      {cred.description}
+                    </p>
+                  </div>
                 </div>
-                <p
-                  className={`text-xs leading-relaxed ${cred.highlight ? "text-zinc-300" : "text-zinc-600"
-                    }`}
-                >
-                  {cred.description}
-                </p>
-              </div>
-            </div>
-          ))}
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
         </div>
 
         {/* Column 2: Industry Body Memberships */}
         <div className="space-y-3.5">
-          <div className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-zinc-700 pb-1">
+          <FadeIn delay={0.15} className="flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-zinc-700 pb-1">
             <Building2 className="w-4 h-4 text-[#991B1B]" />
             <span>Industry Body Memberships</span>
-          </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 gap-2.5">
+          <StaggerContainer className="grid grid-cols-1 gap-2.5">
             {industryBodies.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white/90 rounded-[20px] p-4 border border-black/5 shadow-xs flex flex-col justify-between hover:border-red-200 transition-colors group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="font-mono text-xs font-bold gradient-red-badge border px-2.5 py-0.5 rounded-md">
-                      {item.acronym}
-                    </span>
-                    <div className="flex items-center gap-1 text-[10.5px] text-zinc-500 font-mono">
-                      <span className="w-1.5 h-1.5 rounded-full gradient-red-bg" />
-                      <span>Member</span>
+              <StaggerItem key={idx}>
+                <div className="h-full bg-white/90 rounded-[12px] sm:rounded-[14px] p-4 border border-black/5 shadow-xs flex flex-col justify-between hover:border-red-200 transition-colors group">
+                  <div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="font-mono text-xs font-bold gradient-red-badge border px-2.5 py-0.5 rounded-md">
+                        {item.acronym}
+                      </span>
+                      <div className="flex items-center gap-1 text-[10.5px] text-zinc-500 font-mono">
+                        <span className="w-1.5 h-1.5 rounded-full gradient-red-bg" />
+                        <span>Member</span>
+                      </div>
                     </div>
+                    <h3 className="text-[13.5px] font-semibold text-zinc-900 leading-snug group-hover:text-zinc-950">
+                      {item.name}
+                    </h3>
+                    <p className="text-[11.5px] text-zinc-500 mt-1 leading-relaxed text-justify tracking-wide">
+                      {item.description}
+                    </p>
                   </div>
-                  <h3 className="text-[13.5px] font-semibold text-zinc-900 leading-snug group-hover:text-zinc-950">
-                    {item.name}
-                  </h3>
-                  <p className="text-[11.5px] text-zinc-500 mt-1 leading-relaxed">
-                    {item.description}
-                  </p>
                 </div>
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerContainer>
         </div>
       </div>
     </section>
